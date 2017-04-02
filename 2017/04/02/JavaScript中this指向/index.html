@@ -6,17 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://qianniuer.github.io">
-  <title>Tag: 笑话 | qianniuer</title>
+  <title>qianniuer</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="记录生活">
-<meta property="og:type" content="website">
+  <meta name="description" content="JavaScript中this指向
+
+对于JavaScript初学者来说，this指针的指向问题一直是很混乱的问题。在不同的场景下，this会化身不同的对象。有一种观点认为，只有正确掌握了JavaScript 中的 this 关键字，才算是迈入了 JavaScript这门语言的门槛。在主流的面向对象的语言中（例如Java,C#等)，this 含义是明确且具体的，即指向当前对象。一般在编译期绑定。而">
+<meta property="og:type" content="article">
 <meta property="og:title" content="qianniuer">
-<meta property="og:url" content="http://qianniuer.github.io/tags/笑话/index.html">
+<meta property="og:url" content="http://qianniuer.github.io/2017/04/02/JavaScript中this指向/index.html">
 <meta property="og:site_name" content="qianniuer">
-<meta property="og:description" content="记录生活">
+<meta property="og:description" content="JavaScript中this指向
+
+对于JavaScript初学者来说，this指针的指向问题一直是很混乱的问题。在不同的场景下，this会化身不同的对象。有一种观点认为，只有正确掌握了JavaScript 中的 this 关键字，才算是迈入了 JavaScript这门语言的门槛。在主流的面向对象的语言中（例如Java,C#等)，this 含义是明确且具体的，即指向当前对象。一般在编译期绑定。而">
+<meta property="og:updated_time" content="2017-02-22T13:41:04.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="qianniuer">
-<meta name="twitter:description" content="记录生活">
+<meta name="twitter:description" content="JavaScript中this指向
+
+对于JavaScript初学者来说，this指针的指向问题一直是很混乱的问题。在不同的场景下，this会化身不同的对象。有一种观点认为，只有正确掌握了JavaScript 中的 this 关键字，才算是迈入了 JavaScript这门语言的门槛。在主流的面向对象的语言中（例如Java,C#等)，this 含义是明确且具体的，即指向当前对象。一般在编译期绑定。而">
   
     <link rel="alternative" href="/atom.xml" title="qianniuer" type="application/atom+xml">
   
@@ -160,71 +167,148 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-JavaScript中this指向" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="JavaScript中this指向"><a href="#JavaScript中this指向" class="headerlink" title="JavaScript中this指向"></a>JavaScript中this指向</h1><hr>
+<blockquote>
+<p>对于JavaScript初学者来说，this指针的指向问题一直是很混乱的问题。在不同的场景下，this会化身不同的对象。有一种观点认为，只有正确掌握了<br>JavaScript 中的 this 关键字，才算是迈入了 JavaScript<br>这门语言的门槛。在主流的面向对象的语言中（例如Java,C#等)，this 含义是明确且具体的，即指向当前对象。一般在编译期绑定。而<br>JavaScript 中this 在运行期进行绑定的，这是JavaScript 中this 关键字具备多重含义的本质原因。</p>
+</blockquote>
+<p>随着函数使用场合的不同，this的值会发生变化。但是有一个总的原则，那就是this指的是，<strong>调用函数的那个对象</strong>。</p>
+<hr>
+<h2 id="1、-指向window的隐式指向"><a href="#1、-指向window的隐式指向" class="headerlink" title="1、    指向window的隐式指向"></a>1、    指向window的隐式指向</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">sayHello</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">this</span>.name = <span class="string">"tsrot"</span>;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">"hello "</span> + <span class="keyword">this</span>.name);</div><div class="line">&#125;</div><div class="line">sayHello()       <span class="comment">//hello tsrot</span></div></pre></td></tr></table></figure>
+<p>此时的变量name相当于window.name，因为调用sayHello函数的对象为window，相当于window.sayHello()。和下面两种情况是一样的：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> name = <span class="string">"tsrot"</span>;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">sayHello</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">"hello "</span> + <span class="keyword">this</span>.name);</div><div class="line">&#125;</div><div class="line">sayHello();        <span class="comment">//hello tsrot</span></div></pre></td></tr></table></figure></p>
+<p>下面的name相当于在window下赋值了两次，谁后面执行就取谁。如果把var name = “xieliqun”放到sayHello（）后面，此时输出的就是 hello xieliqun。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> name = <span class="string">"xieliqun"</span>;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">sayHello</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">this</span>.name = <span class="string">"tsrot"</span>;</div><div class="line">&#125;</div><div class="line">sayHello();       </div><div class="line"><span class="built_in">console</span>.log(<span class="string">"hello "</span> + <span class="keyword">this</span>.name); <span class="comment">//hello tsrot</span></div></pre></td></tr></table></figure></p>
+<p><em>注：当函数在DOM上调用时，未传入this，此时，this也指向window。当传入this时，this指向当前DOM input</em>，例如下面情况：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;input type=<span class="string">"button"</span> value=<span class="string">"click me"</span> onclick=<span class="string">"sayHello()"</span>&gt;</div><div class="line">&lt;script&gt;</div><div class="line">	function sayHello()&#123;</div><div class="line">    	console.log("hello " + this.tagName);   //hello undefined</div><div class="line">    &#125;</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;input type=<span class="string">"button"</span> value=<span class="string">"click me"</span> onclick=<span class="string">"sayHello(this.tagName)"</span>&gt;</div><div class="line">&lt;script&gt;</div><div class="line">	function sayHello(tagName)&#123;</div><div class="line">    	console.log("hello " + tagName);   //hello INPUT</div><div class="line">    &#125;</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<hr>
+<h2 id="2、-指向当前对象的显式调用"><a href="#2、-指向当前对象的显式调用" class="headerlink" title="2、    指向当前对象的显式调用"></a>2、    指向当前对象的显式调用</h2><h3 id="（1）、作为对象方法的调用"><a href="#（1）、作为对象方法的调用" class="headerlink" title="（1）、作为对象方法的调用"></a>（1）、作为对象方法的调用</h3><p>函数还可以作为某个对象的方法调用，这时this就指这个上级对象。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">sayHello</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">"hello "</span> + <span class="keyword">this</span>.name);</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> o = &#123;&#125;;</div><div class="line">o.name = <span class="string">"tsrot"</span>;</div><div class="line">o.hello = sayHello;</div><div class="line">o.hello();  <span class="comment">//hello tsrot</span></div></pre></td></tr></table></figure></p>
+<h3 id="（2）、作为构造函数调用"><a href="#（2）、作为构造函数调用" class="headerlink" title="（2）、作为构造函数调用"></a>（2）、作为构造函数调用</h3><p>所谓构造函数，就是通过这个函数生成一个新对象（object）。这时，this就指这个新对象。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">sayHello</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">this</span>.name = <span class="string">"tsrot"</span>;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> o = <span class="keyword">new</span> sayHello();</div><div class="line"><span class="built_in">console</span>.log(<span class="string">"hello "</span> + o.name);  <span class="comment">//hello tsrot</span></div></pre></td></tr></table></figure></p>
+<hr>
+<h2 id="3、-指向当前对象的隐式调用"><a href="#3、-指向当前对象的隐式调用" class="headerlink" title="3、    指向当前对象的隐式调用"></a>3、    指向当前对象的隐式调用</h2><h3 id="（1）-call、apply调用"><a href="#（1）-call、apply调用" class="headerlink" title="（1）    call、apply调用"></a>（1）    call、apply调用</h3><p>call（）、apply()都是函数对象的一个方法，它们的作用是改变函数的调用对象，它们的第一个参数就表示改变后的调用这个函数的对象。因此，this指的就是这第一个参数。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">sayHello</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">"hello "</span> + <span class="keyword">this</span>.name);</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> o = &#123;&#125;;</div><div class="line">o.name = <span class="string">"tsrot"</span>;</div><div class="line">o.hello = sayHello;</div><div class="line">o.hello.apply();   <span class="comment">//hello</span></div></pre></td></tr></table></figure></p>
+<p>apply()的参数为空时，默认调用全局对象。因此，这时的运行结果为0，证明this指的是全局对象。<br>如果把最后一行代码修改为<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// o.hello.apply();    //hello</span></div><div class="line">o.hello.apply(o);      <span class="comment">//hello tsrot</span></div><div class="line">o.hello.apply(<span class="keyword">this</span>);      <span class="comment">//hello tsrot</span></div><div class="line">o.hello.call(o);      <span class="comment">//hello tsrot</span></div><div class="line">o.hello.call(<span class="keyword">this</span>);      <span class="comment">//hello tsrot</span></div></pre></td></tr></table></figure></p>
+<p>此时this就指向对象o了。</p>
+<h3 id="（2）-原生Function方法bind（）调用"><a href="#（2）-原生Function方法bind（）调用" class="headerlink" title="（2）    原生Function方法bind（）调用"></a>（2）    原生Function方法bind（）调用</h3><p>很多人不知道原生js也有bind（）方法，一直以为bind（）的方法只有jQuery有，我也是最近看别人博客知道的。其实原生的bind和jQuery的bind是不同的，原生的bind相当于apply和call。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> person = &#123;</div><div class="line">    <span class="attr">name</span>:<span class="string">"tsrot"</span>,</div><div class="line">    <span class="attr">sayHello</span>:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">"你好，我是"</span>+<span class="keyword">this</span>.name);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> boundFunc = person.sayHello.bind(person,person.sayHello);</div><div class="line">setTimeout(boundFunc,<span class="number">5000</span>);   <span class="comment">//5秒后输出 你好，我是tsrot ,[setTimeout 涉及一些执行栈的问题](https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/setTimeout)，或者简单的理解,在浏览器中setTimeout是window的属性。</span></div></pre></td></tr></table></figure></p>
+<p>下图代码中person.sayHello,相当于在window.person.sayHello，所以this指向window。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> person = &#123;</div><div class="line">    <span class="attr">name</span>:<span class="string">"tsrot"</span>,</div><div class="line">    <span class="attr">sayHello</span>:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">"你好，我是"</span>+<span class="keyword">this</span>.name);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="comment">//var boundFunc = person.sayHello.bind(person,person.sayHello);</span></div><div class="line">setTimeout(person.sayHello,<span class="number">5000</span>);   <span class="comment">//5秒后输出 你好，我是</span></div></pre></td></tr></table></figure></p>
+<p>用apply和call调用时，函数将立即执行<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> person = &#123;</div><div class="line">    <span class="attr">name</span>:<span class="string">"tsrot"</span>,</div><div class="line">    <span class="attr">sayHello</span>:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">"你好，我是"</span>+<span class="keyword">this</span>.name);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> boundFunc = person.sayHello.apply(person,person.sayHello);</div><div class="line">setTimeout(boundFunc,<span class="number">5000</span>);   <span class="comment">//立即输出 你好，我是tsrot</span></div></pre></td></tr></table></figure></p>
+<hr>
+<h2 id="4、-当this在构造函数有return时"><a href="#4、-当this在构造函数有return时" class="headerlink" title="4、    当this在构造函数有return时"></a>4、    当this在构造函数有return时</h2><p>如果返回值是一个对象，那么this指向的就是那个返回的对象，如果返回值不是一个对象那么this还是指向函数的实例。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">this</span>.name = <span class="string">"tsrot"</span>;</div><div class="line">    <span class="keyword">return</span> &#123;&#125;;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> o = <span class="keyword">new</span> fn();</div><div class="line"><span class="built_in">console</span>.log(o.name);  <span class="comment">//undefined</span></div></pre></td></tr></table></figure></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">this</span>.name = <span class="string">"tsrot"</span>;</div><div class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> o = <span class="keyword">new</span> fn();</div><div class="line"><span class="built_in">console</span>.log(o.name);  <span class="comment">//undefined</span></div></pre></td></tr></table></figure>
+<p>当return null和undefined时<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">this</span>.name = <span class="string">"tsrot"</span>;</div><div class="line">    <span class="keyword">return</span> <span class="literal">null</span>;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> o = <span class="keyword">new</span> fn();</div><div class="line"><span class="built_in">console</span>.log(o.name);  <span class="comment">//tsrot</span></div></pre></td></tr></table></figure></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">this</span>.name = <span class="string">"tsrot"</span>;</div><div class="line">    <span class="keyword">return</span> <span class="literal">undefined</span>;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> o = <span class="keyword">new</span> fn();</div><div class="line"><span class="built_in">console</span>.log(o.name);  <span class="comment">//tsrot</span></div></pre></td></tr></table></figure>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2015" class="archive-year">2015</a>
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/04/16/幽默笑话/" class="archive-article-date">
-  	<time datetime="2015-04-16T08:37:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-04-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/04/16/幽默笑话/">幽默笑话</a>
-    </h1>
-  
+      </div>
+    </span>
+  </div>
+</div>
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笑话</a>
-        		</li>
-      		
-		</ul>
-	</div>
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://qianniuer.github.io/2017/04/02/JavaScript中this指向/" alt="微信分享二维码">
+    </div>
+</div>
 
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/读者集萃/" class="article-tag-list-link color5">读者集萃</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2017/04/02/React学习资源汇总/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"></div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+
+  
+    <div class="duoshuo"></div>
   
 
-    
+
 
 
           </div>
@@ -247,9 +331,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		root: "/",
@@ -314,6 +398,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">笑话</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">原理</a>
               </li>
             
             <div class="clearfix"></div>
