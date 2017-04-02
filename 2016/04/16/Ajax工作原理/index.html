@@ -14,7 +14,7 @@
 <meta property="og:url" content="http://qianniuer.github.io/2016/04/16/Ajax工作原理/index.html">
 <meta property="og:site_name" content="qianniuer">
 <meta property="og:description" content="&amp;gt; AJAX 是一种用于创建快速动态网页的技术。通过在后台与服务器进行少量数据交换，AJAX 可以使网页实现异步更新。这意味着可以在不重新加载整个网页的情况下，对网页的某部分进行更新。">
-<meta property="og:updated_time" content="2017-04-02T08:08:08.641Z">
+<meta property="og:updated_time" content="2017-04-02T08:10:53.236Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="AJAX工作原理">
 <meta name="twitter:description" content="&amp;gt; AJAX 是一种用于创建快速动态网页的技术。通过在后台与服务器进行少量数据交换，AJAX 可以使网页实现异步更新。这意味着可以在不重新加载整个网页的情况下，对网页的某部分进行更新。">
@@ -204,8 +204,10 @@
 </ul>
 <h4 id="3、发送请求"><a href="#3、发送请求" class="headerlink" title="3、发送请求"></a>3、发送请求</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">xhr.send();</div></pre></td></tr></table></figure>
 <p>一般情况下，使用Ajax提交的参数多是些简单的字符串，可以直接使用GET方法将要提交的参数写到open方法的url参数中，此时send方法的参数为null或为空。</p>
-<p>GET请求：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">xhr.open(<span class="string">"GET"</span>,demo.php?name=tsrot&amp;age=<span class="number">24</span>,<span class="literal">true</span>);</div><div class="line">xhr.send(<span class="literal">null</span>);</div></pre></td></tr></table></figure></p>
-<p>POST请求：<br>如果需要像 HTML 表单那样 POST 数据，请使用 setRequestHeader() 来添加 HTTP 头。然后在 send() 方法中规定您希望发送的数据：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">xhr.open(<span class="string">"POST"</span>,demo.php,<span class="literal">true</span>);</div><div class="line">xhr.setRequestHeder(<span class="string">"Content-Type"</span>,<span class="string">"application/x-www-form-urlencoded;charset=UTF-8"</span>);</div><div class="line">xhr.send(<span class="string">"name="</span>+userName+<span class="string">"&amp;age="</span>+userAge);</div></pre></td></tr></table></figure></p>
+<p>GET请求：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">xhr.open(<span class="string">"GET"</span>,demo.php?name=tsrot&amp;age=<span class="number">24</span>,<span class="literal">true</span>);</div><div class="line">xhr.send(<span class="literal">null</span>);</div></pre></td></tr></table></figure>
+<p>POST请求：<br>如果需要像 HTML 表单那样 POST 数据，请使用 setRequestHeader() 来添加 HTTP 头。然后在 send() 方法中规定您希望发送的数据：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">xhr.open(<span class="string">"POST"</span>,demo.php,<span class="literal">true</span>);</div><div class="line">xhr.setRequestHeder(<span class="string">"Content-Type"</span>,<span class="string">"application/x-www-form-urlencoded;charset=UTF-8"</span>);</div><div class="line">xhr.send(<span class="string">"name="</span>+userName+<span class="string">"&amp;age="</span>+userAge);</div></pre></td></tr></table></figure>
 <h4 id="4、处理响应"><a href="#4、处理响应" class="headerlink" title="4、处理响应"></a>4、处理响应</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">xhr.onreadystatechange = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="keyword">if</span>(xhr.readyState == <span class="number">4</span> &amp;&amp; xhr.status == <span class="number">200</span>)&#123;</div><div class="line">		<span class="built_in">console</span>.log(xhr.responseText);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>onreadystatechange 事件：<br>当请求被发送到服务器时，我们需要执行一些基于响应的任务。每当 readyState 改变时，就会触发 onreadystatechange 事件。</p>
 <p>readyState属性：<br>0：已经创建对象，但还没有调用open()方法。<br>1：已经调用open()方法，但还没有发送请求。<br>2：请求已经发送，标题和状态已经收到，并可用。<br>3：接收到来自服务器的响应。<br>4：接收完请求数据，表示已经完成请求。</p>
@@ -335,15 +337,20 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/04/02/React学习资源汇总/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2016/05/17/JavaScript中this指向/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          (no title)
+          JavaScript中this指向
         
       </div>
     </a>
   
+  
+    <a href="/2016/04/16/Arguments对象作用深度研究/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Arguments对象作用深度研究</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 
@@ -450,6 +457,14 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">原理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Arguments</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">闭包</a>
               </li>
             
             <div class="clearfix"></div>

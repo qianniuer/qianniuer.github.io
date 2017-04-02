@@ -6,17 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://qianniuer.github.io">
-  <title>Category: 读者集萃 | qianniuer</title>
+  <title>Arguments对象作用深度研究 | qianniuer</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="记录生活">
-<meta property="og:type" content="website">
-<meta property="og:title" content="qianniuer">
-<meta property="og:url" content="http://qianniuer.github.io/categories/读者集萃/index.html">
+  <meta name="description" content="每个函数都会有一个Arguments对象实例arguments，它引用着函数的实参，可以用数组下标的方式”[]”引用arguments的元素。arguments.length为函数实参个数，arguments.callee引用函数自身。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Arguments对象作用深度研究">
+<meta property="og:url" content="http://qianniuer.github.io/2016/04/16/Arguments对象作用深度研究/index.html">
 <meta property="og:site_name" content="qianniuer">
-<meta property="og:description" content="记录生活">
+<meta property="og:description" content="每个函数都会有一个Arguments对象实例arguments，它引用着函数的实参，可以用数组下标的方式”[]”引用arguments的元素。arguments.length为函数实参个数，arguments.callee引用函数自身。">
+<meta property="og:updated_time" content="2017-04-02T08:18:08.363Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="qianniuer">
-<meta name="twitter:description" content="记录生活">
+<meta name="twitter:title" content="Arguments对象作用深度研究">
+<meta name="twitter:description" content="每个函数都会有一个Arguments对象实例arguments，它引用着函数的实参，可以用数组下标的方式”[]”引用arguments的元素。arguments.length为函数实参个数，arguments.callee引用函数自身。">
   
     <link rel="alternative" href="/atom.xml" title="qianniuer" type="application/atom+xml">
   
@@ -160,232 +161,76 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Arguments对象作用深度研究" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/10/12/JS中的call、apply、bind方法详解/" class="archive-article-date">
-  	<time datetime="2016-10-12T08:37:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-10-12</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/10/12/JS中的call、apply、bind方法详解/">JS中的call、apply、bind方法详解</a>
+    <h1 class="article-title" itemprop="name">
+      Arguments对象作用深度研究
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">原理</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/读者集萃/" class="article-tag-list-link color5">读者集萃</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/08/06/React学习资源汇总/" class="archive-article-date">
-  	<time datetime="2016-08-06T02:37:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-08-06</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/08/06/React学习资源汇总/">React学习资源汇总</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">原理</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/读者集萃/" class="article-tag-list-link color5">读者集萃</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/05/17/JavaScript中this指向/" class="archive-article-date">
-  	<time datetime="2016-05-17T08:37:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-05-17</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/05/17/JavaScript中this指向/">JavaScript中this指向</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">原理</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/读者集萃/" class="article-tag-list-link color5">读者集萃</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/04/16/Ajax工作原理/" class="archive-article-date">
+        
+        <a href="/2016/04/16/Arguments对象作用深度研究/" class="archive-article-date">
   	<time datetime="2016-04-16T08:37:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-04-16</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/04/16/Ajax工作原理/">AJAX工作原理</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">原理</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/读者集萃/" class="article-tag-list-link color5">读者集萃</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
+        
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/04/16/Arguments对象作用深度研究/" class="archive-article-date">
-  	<time datetime="2016-04-16T08:37:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-04-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/04/16/Arguments对象作用深度研究/">Arguments对象作用深度研究</a>
-    </h1>
-  
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>每个函数都会有一个Arguments对象实例arguments，它引用着函数的实参，可以用数组下标的方式”[]”引用arguments的元素。arguments.length为函数实参个数，arguments.callee引用函数自身。</p>
+</blockquote>
+<hr>
+<a id="more"></a>
+<h3 id="Arguments对象介绍"><a href="#Arguments对象介绍" class="headerlink" title="Arguments对象介绍"></a>Arguments对象介绍</h3><p>Arguments对象是一个伪数组对象，它有length属性，可以arguments[i]来访问对象中的元素，但它不能用数组的一些方法，例如push，pop，slice等。</p>
+<h4 id="Arguments的length属性"><a href="#Arguments的length属性" class="headerlink" title="Arguments的length属性"></a>Arguments的length属性</h4><p>Arguments的length属性，表示function函数实际所传参数的个数。函数名点length可以获取函数期望的传参个数。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">argTest</span>(<span class="params">a,b,c</span>)</span>&#123;</div><div class="line">	<span class="keyword">var</span> t = <span class="built_in">arguments</span>.length; <span class="comment">//实际传参个数</span></div><div class="line">	<span class="keyword">var</span> e = argTest.length;   <span class="comment">//期望传参个数</span></div><div class="line">	</div><div class="line">	<span class="built_in">console</span>.log(t);</div><div class="line">	<span class="built_in">console</span>.log(e);</div><div class="line">&#125;</div><div class="line"></div><div class="line">argTest(<span class="number">11</span>,<span class="number">12</span>);       <span class="comment">//t=2,e=3</span></div><div class="line">argTest(<span class="number">11</span>,<span class="number">12</span>,<span class="number">13</span>);    <span class="comment">//t=3,e=3</span></div><div class="line">argTest(<span class="number">11</span>,<span class="number">12</span>,<span class="number">13</span>,<span class="number">14</span>); <span class="comment">//t=4,e=3</span></div></pre></td></tr></table></figure>
+<h4 id="Arguments的参数访问"><a href="#Arguments的参数访问" class="headerlink" title="Arguments的参数访问"></a>Arguments的参数访问</h4><p>Arguments对象的参数访问可以用arguments[i]来访问函数所传的参数。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">argTest</span>(<span class="params">a,b,c</span>)</span>&#123;</div><div class="line">	<span class="keyword">var</span> arg = [];</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;<span class="built_in">arguments</span>.length;i++)&#123;</div><div class="line">		arg.push(<span class="built_in">arguments</span>[i]);</div><div class="line">	&#125;</div><div class="line">	<span class="built_in">console</span>.log(arg);</div><div class="line">&#125;</div><div class="line"></div><div class="line">argTest(<span class="number">11</span>,<span class="number">12</span>);       <span class="comment">//[11, 12]</span></div><div class="line">argTest(<span class="number">11</span>,<span class="number">12</span>,<span class="number">13</span>);    <span class="comment">//[11, 12, 13]</span></div><div class="line">argTest(<span class="number">11</span>,<span class="number">12</span>,<span class="number">13</span>,<span class="number">14</span>); <span class="comment">//[11, 12, 13, 14]</span></div></pre></td></tr></table></figure>
+<h4 id="Arguments的callee调用"><a href="#Arguments的callee调用" class="headerlink" title="Arguments的callee调用"></a>Arguments的callee调用</h4><p>Arguments的callee属性可以调用函数本身，当函数正在执行时才可调用，可以实现方法的递归调用。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">argTest</span>(<span class="params">a,b,c</span>)</span>&#123;</div><div class="line">	<span class="keyword">var</span> e = <span class="built_in">arguments</span>.callee.toString();</div><div class="line">	<span class="built_in">console</span>.log(e);</div><div class="line">&#125;</div><div class="line"></div><div class="line">argTest(); <span class="comment">//打印出函数本身</span></div></pre></td></tr></table></figure>
+<h4 id="Function对象caller属性"><a href="#Function对象caller属性" class="headerlink" title="Function对象caller属性"></a>Function对象caller属性</h4><p>Function对象的caller属性可以指向当前函数的调用者，当调用者函数正在执行时才可调用，</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">callerTest</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	</div><div class="line">	<span class="keyword">if</span>(callerTest.caller)&#123;</div><div class="line">		<span class="keyword">var</span> caller = callerTest.caller.toString();</div><div class="line">		<span class="built_in">console</span>.log(caller);</div><div class="line">	&#125;<span class="keyword">else</span>&#123;</div><div class="line">		<span class="built_in">console</span>.log(<span class="string">"no caller"</span>)</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">handler</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	callerTest();</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">handlerToHandler</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	handler();</div><div class="line">&#125;</div><div class="line"></div><div class="line">callerTest();        <span class="comment">//no caller</span></div><div class="line">handler();           <span class="comment">//返回调用者handler函数</span></div><div class="line">handlerToHandler();  <span class="comment">//返回调用者handler函数</span></div></pre></td></tr></table></figure>
+<h3 id="Arguments的作用"><a href="#Arguments的作用" class="headerlink" title="Arguments的作用"></a>Arguments的作用</h3><h4 id="方法重载"><a href="#方法重载" class="headerlink" title="方法重载"></a>方法重载</h4><p>方法重载是指在一个类中定义多个同名的方法，但要求每个方法具有不同的参数的类型或参数的个数。<br>Javascript并没有重载函数的功能，但是Arguments对象能够模拟重载。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//普通方法实现方法重载</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params">a,b,c</span>)</span>&#123;</div><div class="line">	<span class="keyword">if</span>(a &amp;&amp; b &amp;&amp; c)&#123;</div><div class="line">		<span class="built_in">console</span>.log(a + b + c);</div><div class="line">	&#125;<span class="keyword">else</span> <span class="keyword">if</span>(a &amp;&amp; b)&#123;</div><div class="line">		<span class="built_in">console</span>.log(a + b);</div><div class="line">	&#125;<span class="keyword">else</span>&#123;</div><div class="line">		<span class="built_in">console</span>.log(a);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">test();           <span class="comment">//undefined</span></div><div class="line">test(<span class="number">11</span>,<span class="number">12</span>);      <span class="comment">//23</span></div><div class="line">test(<span class="number">11</span>,<span class="number">12</span>,<span class="number">13</span>)    <span class="comment">//36</span></div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//Arguments对象实现方法重载</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="keyword">var</span> sum = <span class="number">0</span>;</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;<span class="built_in">arguments</span>.length;i++)&#123;</div><div class="line">		sum += <span class="built_in">arguments</span>[i];</div><div class="line">	&#125;</div><div class="line">	<span class="built_in">console</span>.log(sum);</div><div class="line">&#125;</div><div class="line"></div><div class="line">test();          <span class="comment">//0</span></div><div class="line">test(<span class="number">11</span>,<span class="number">12</span>);     <span class="comment">//23</span></div><div class="line">test(<span class="number">11</span>,<span class="number">12</span>,<span class="number">13</span>);  <span class="comment">//36</span></div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//ES6实现方法重载</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params">...nums</span>)</span>&#123;</div><div class="line">	<span class="keyword">var</span> sum = <span class="number">0</span>;</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;nums.length;i++)&#123;</div><div class="line">		sum += nums[i];</div><div class="line">	&#125;</div><div class="line">	<span class="built_in">console</span>.log(sum);</div><div class="line">&#125;</div><div class="line"></div><div class="line">test();          <span class="comment">//0</span></div><div class="line">test(<span class="number">11</span>,<span class="number">12</span>);     <span class="comment">//23</span></div><div class="line">test(<span class="number">11</span>,<span class="number">12</span>,<span class="number">13</span>);  <span class="comment">//36</span></div></pre></td></tr></table></figure>
+<h4 id="递归调用"><a href="#递归调用" class="headerlink" title="递归调用"></a>递归调用</h4><p>这样的好处就是可以实现匿名函数的递归调用。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//实现一个阶乘函数</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">factorial</span>(<span class="params">n</span>)</span>&#123;</div><div class="line">	<span class="keyword">if</span>(n == <span class="number">1</span>)&#123;</div><div class="line">		<span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">	&#125;<span class="keyword">else</span>&#123;</div><div class="line">		n * <span class="built_in">arguments</span>.callee(n<span class="number">-1</span>);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">factorial(<span class="number">1</span>); <span class="comment">//1</span></div><div class="line">factorial(<span class="number">5</span>); <span class="comment">//120</span></div></pre></td></tr></table></figure>
+<h4 id="不定参问题"><a href="#不定参问题" class="headerlink" title="不定参问题"></a>不定参问题</h4><p>比如说，我想判断你传给我的一些数字的大小，取出最大的那个</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">max</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="keyword">var</span> maxNum = <span class="built_in">Number</span>.NEGATIVE_INFINITY;;</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;<span class="built_in">arguments</span>.length;i++)&#123;</div><div class="line">		<span class="keyword">if</span>(<span class="built_in">arguments</span>[i]&gt; maxNum)&#123;</div><div class="line">			maxNum = <span class="built_in">arguments</span>[i];</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> maxNum;</div><div class="line">&#125;</div><div class="line"></div><div class="line">max(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">11</span>,<span class="number">4</span>,<span class="number">10</span>); <span class="comment">//11</span></div><div class="line">max(<span class="number">2</span>,<span class="number">-10</span>,<span class="number">22</span>,<span class="number">11</span>);   <span class="comment">//22</span></div></pre></td></tr></table></figure>
+      
 
-        <div class="article-info info-on-right">
-          
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -397,7 +242,7 @@
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -410,115 +255,95 @@
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://qianniuer.github.io/2016/04/16/Arguments对象作用深度研究/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/04/16/JS的原型和原型链/" class="archive-article-date">
-  	<time datetime="2016-04-16T08:37:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-04-16</time>
-</a>
-        </div>
-    	 
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/04/16/JS的原型和原型链/">JS的原型和原型链</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">原理</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/读者集萃/" class="article-tag-list-link color5">读者集萃</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/04/16/JavaScript闭包(closure)/" class="archive-article-date">
-  	<time datetime="2016-04-16T08:37:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-04-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/04/16/JavaScript闭包(closure)/">JavaScript闭包（closure）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">闭包</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/读者集萃/" class="article-tag-list-link color5">读者集萃</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+    <a href="/2016/04/16/Ajax工作原理/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          AJAX工作原理
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2016/04/16/JS的原型和原型链/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">JS的原型和原型链</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+
+  
+    <div class="duoshuo"></div>
   
 
-    
+
 
 
           </div>
@@ -541,10 +366,10 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
-		isCategory: true,
+		isCategory: false,
 		open_in_new: false,
 		root: "/",
 		innerArchive: true,

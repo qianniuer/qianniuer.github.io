@@ -6,17 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://qianniuer.github.io">
-  <title>Archives: 2017 | qianniuer</title>
+  <title>JS中的call、apply、bind方法详解 | qianniuer</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="记录生活">
-<meta property="og:type" content="website">
-<meta property="og:title" content="qianniuer">
-<meta property="og:url" content="http://qianniuer.github.io/archives/2017/index.html">
+  <meta name="description" content="call()、apply()、bind()都是函数对象的一个方法，它们的作用都是改变函数的调用对象。它的使用极大的简化了代码的调用。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS中的call、apply、bind方法详解">
+<meta property="og:url" content="http://qianniuer.github.io/2016/10/12/JS中的call、apply、bind方法详解/index.html">
 <meta property="og:site_name" content="qianniuer">
-<meta property="og:description" content="记录生活">
+<meta property="og:description" content="call()、apply()、bind()都是函数对象的一个方法，它们的作用都是改变函数的调用对象。它的使用极大的简化了代码的调用。">
+<meta property="og:updated_time" content="2017-04-02T08:18:43.266Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="qianniuer">
-<meta name="twitter:description" content="记录生活">
+<meta name="twitter:title" content="JS中的call、apply、bind方法详解">
+<meta name="twitter:description" content="call()、apply()、bind()都是函数对象的一个方法，它们的作用都是改变函数的调用对象。它的使用极大的简化了代码的调用。">
   
     <link rel="alternative" href="/atom.xml" title="qianniuer" type="application/atom+xml">
   
@@ -160,64 +161,175 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-JS中的call、apply、bind方法详解" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      JS中的call、apply、bind方法详解
+    </h1>
+  
+
+        
+        <a href="/2016/10/12/JS中的call、apply、bind方法详解/" class="archive-article-date">
+  	<time datetime="2016-10-12T08:37:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-10-12</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>call()、apply()、bind()都是函数对象的一个方法，它们的作用都是改变函数的调用对象。它的使用极大的简化了代码的调用。</p>
+</blockquote>
+<hr>
+<a id="more"></a>
+<h3 id="一、方法定义"><a href="#一、方法定义" class="headerlink" title="一、方法定义"></a>一、方法定义</h3><h4 id="call方法"><a href="#call方法" class="headerlink" title="call方法"></a>call方法</h4><p>语法：<code>call([thisObj[,arg1[, arg2[,   [,.argN]]]]])</code><br>定义：调用一个对象的一个方法，以另一个对象替换当前对象。<br>说明：call 方法可以用来代替另一个对象调用一个方法。call 方法可将一个函数的对象上下文从初始的上下文改变为由 thisObj 指定的新对象。如果没有提供 thisObj 参数，那么 Global 对象被用作 thisObj。<br>arg1 … argN为被调用方法的传参。</p>
+<h4 id="apply方法"><a href="#apply方法" class="headerlink" title="apply方法"></a>apply方法</h4><p>语法：<code>apply([thisObj[,argArray]])</code><br>定义：应用某一对象的一个方法，用另一个对象替换当前对象。<br>说明：apply的第一个参数thisObj和call方法的一样，第二个参数argArray为一个传参数组。thisObj如果未传，那么 Global 对象被用作 thisObj。</p>
+<h4 id="bind方法"><a href="#bind方法" class="headerlink" title="bind方法"></a>bind方法</h4><p>在ECMAScript5中扩展了叫bind的方法（IE6,7,8不支持）<br>语法：<code>bind([thisObj[,arg1[, arg2[,   [,.argN]]]]])</code><br>定义：应用某一对象的一个方法，用另一个对象替换当前对象。<br>说明：bind的thisObj参数也和call方法一样，thisObj如果未传，那么 Global 对象被用作 thisObj。arg1 … argN可传可不传。如果不传，可以在调用的时候再传。如果传了，调用的时候则可以不传，调用的时候如果你还是传了，则不生效。例如：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> person = &#123;</div><div class="line">    <span class="attr">name</span>:<span class="string">"tsrot"</span>,</div><div class="line">    <span class="attr">age</span>:<span class="number">24</span>,</div><div class="line">    <span class="attr">sayHello</span>:<span class="function"><span class="keyword">function</span>(<span class="params">age</span>)</span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.name);</div><div class="line">        <span class="built_in">console</span>.log(age);</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line"><span class="keyword">var</span> son = &#123;</div><div class="line">	<span class="attr">name</span>:<span class="string">"xieliqun"</span></div><div class="line">&#125;;</div><div class="line"><span class="keyword">var</span> boundFunc = person.sayHello.bind(son);</div><div class="line">boundFunc(<span class="number">25</span>); <span class="comment">// xieliqun  25</span></div></pre></td></tr></table></figure></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> boundFunc = person.sayHello.bind(son,<span class="number">25</span>);</div><div class="line">boundFunc(); <span class="comment">// xieliqun  25</span></div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> boundFunc = person.sayHello.bind(son,<span class="number">25</span>);</div><div class="line">boundFunc(<span class="number">30</span>); <span class="comment">// xieliqun  25</span></div></pre></td></tr></table></figure>
+<h3 id="二、call、apply、bind的区别"><a href="#二、call、apply、bind的区别" class="headerlink" title="二、call、apply、bind的区别"></a>二、call、apply、bind的区别</h3><p>1、call的arg传参需一个一个传，apply则直接传一个数组。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">hello</span>(<span class="params">name,age</span>)</span>&#123;</div><div class="line">	<span class="built_in">console</span>.log(name);</div><div class="line">	<span class="built_in">console</span>.log(age);</div><div class="line">&#125;</div><div class="line">hello.call(<span class="keyword">this</span>,<span class="string">"tsrot"</span>,<span class="number">24</span>);</div><div class="line">hello.apply(<span class="keyword">this</span>,[<span class="string">"tsrot"</span>,<span class="number">24</span>]);</div></pre></td></tr></table></figure></p>
+<p>2、call和apply直接执行函数，而bind需要再一次调用。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> obj = &#123;</div><div class="line">    <span class="attr">x</span>: <span class="number">81</span>,</div><div class="line">&#125;;</div><div class="line">  </div><div class="line"><span class="keyword">var</span> foo = &#123;</div><div class="line">    <span class="attr">getX</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.x;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">  </div><div class="line"><span class="built_in">console</span>.log(foo.getX.bind(obj)());  <span class="comment">//81</span></div><div class="line"><span class="built_in">console</span>.log(foo.getX.call(obj));    <span class="comment">//81</span></div><div class="line"><span class="built_in">console</span>.log(foo.getX.apply(obj));   <span class="comment">//81</span></div></pre></td></tr></table></figure></p>
+<h3 id="三、运用场景"><a href="#三、运用场景" class="headerlink" title="三、运用场景"></a>三、运用场景</h3><h4 id="实现继承"><a href="#实现继承" class="headerlink" title="实现继承"></a>实现继承</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Animal</span>(<span class="params">name</span>) </span>&#123;</div><div class="line">  <span class="keyword">this</span>.name = name;</div><div class="line">  <span class="keyword">this</span>.showName = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Cat</span>(<span class="params">name</span>) </span>&#123;</div><div class="line">  Animal.call(<span class="keyword">this</span>, name); <span class="comment">//Cat继承了Animal的showName方法</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> cat = <span class="keyword">new</span> Cat(<span class="string">'Black Cat'</span>);</div><div class="line">cat.showName(); <span class="comment">//Black Cat</span></div></pre></td></tr></table></figure>
+<h4 id="数组追加"><a href="#数组追加" class="headerlink" title="数组追加"></a>数组追加</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> array1 = [<span class="number">1</span> , <span class="number">2</span> , <span class="number">3</span>, <span class="number">5</span>];  </div><div class="line"><span class="keyword">var</span> array2 = [<span class="string">"xie"</span> , <span class="string">"li"</span> , <span class="string">"qun"</span> , <span class="string">"tsrot"</span>];  </div><div class="line"><span class="built_in">Array</span>.prototype.push.apply(array1, array2);</div><div class="line"><span class="built_in">console</span>.log(array1);<span class="comment">//[1, 2, 3, 5, "xie", "li", "qun", "tsrot"]</span></div></pre></td></tr></table></figure>
+<h4 id="获取数组中的最大值和最小值"><a href="#获取数组中的最大值和最小值" class="headerlink" title="获取数组中的最大值和最小值"></a>获取数组中的最大值和最小值</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> num = [<span class="number">1</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">7</span>,<span class="number">2</span>,<span class="number">-10</span>,<span class="number">11</span>];</div><div class="line"><span class="keyword">var</span> maxNum = <span class="built_in">Math</span>.max.apply(<span class="built_in">Math</span>, num);</div><div class="line"><span class="keyword">var</span> minNum = <span class="built_in">Math</span>.min.apply(<span class="built_in">Math</span>, num);</div><div class="line"><span class="built_in">console</span>.log(maxNum); <span class="comment">//11</span></div><div class="line"><span class="built_in">console</span>.log(minNum); <span class="comment">//-10</span></div></pre></td></tr></table></figure>
+<h4 id="将伪数组转化为数组"><a href="#将伪数组转化为数组" class="headerlink" title="将伪数组转化为数组"></a>将伪数组转化为数组</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> fakeArr = &#123;<span class="number">0</span>:<span class="string">'a'</span>,<span class="number">1</span>:<span class="string">'b'</span>,<span class="attr">length</span>:<span class="number">2</span>&#125;;</div><div class="line"><span class="keyword">var</span> arr1 = <span class="built_in">Array</span>.prototype.slice.call(fakeArr);</div><div class="line"><span class="built_in">console</span>.log(arr1[<span class="number">0</span>]); <span class="comment">//a</span></div><div class="line"><span class="keyword">var</span> arr2 = [].slice.call(fakeArr);</div><div class="line"><span class="built_in">console</span>.log(arr2[<span class="number">0</span>]); <span class="comment">//a</span></div><div class="line"></div><div class="line">arr1.push(<span class="string">"c"</span>);</div><div class="line"><span class="built_in">console</span>.log(arr1); <span class="comment">//["a", "b", "c"]</span></div></pre></td></tr></table></figure>
+<h4 id="保存this变量"><a href="#保存this变量" class="headerlink" title="保存this变量"></a>保存this变量</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 正常情况下使用变量保存 this 值</span></div><div class="line"><span class="keyword">var</span> foo = &#123;</div><div class="line">    <span class="attr">bar</span> : <span class="number">1</span>,</div><div class="line">    <span class="attr">eventBind</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="keyword">var</span> _this = <span class="keyword">this</span> ;</div><div class="line">        $(<span class="string">'.someClass'</span>).on(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>&#123;</div><div class="line">            <span class="comment">/* Act on the event */</span></div><div class="line">            <span class="built_in">console</span>.log(_this.bar);     <span class="comment">//1</span></div><div class="line">        &#125;);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 使用 bind 进行函数绑定</span></div><div class="line"><span class="keyword">var</span> foo = &#123;</div><div class="line">    <span class="attr">bar</span> : <span class="number">1</span>,</div><div class="line">    <span class="attr">eventBind</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        $(<span class="string">'.someClass'</span>).on(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>&#123;</div><div class="line">            <span class="comment">/* Act on the event */</span></div><div class="line">            <span class="built_in">console</span>.log(<span class="keyword">this</span>.bar);      <span class="comment">//1</span></div><div class="line">        &#125;.bind(<span class="keyword">this</span>));</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/04/02/JavaScript中this指向/" class="archive-article-date">
-  	<time datetime="2017-04-02T08:03:11.952Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-02</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">原理</a>
+        		</li>
+      		
+		</ul>
+	</div>
 
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/读者集萃/" class="article-tag-list-link color5">读者集萃</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://qianniuer.github.io/2016/10/12/JS中的call、apply、bind方法详解/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/04/02/React学习资源汇总/" class="archive-article-date">
-  	<time datetime="2017-04-02T08:03:11.933Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-02</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2016/08/06/React学习资源汇总/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">React学习资源汇总</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+
+  
+    <div class="duoshuo"></div>
   
 
-    
+
 
 
           </div>
@@ -240,8 +352,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
@@ -311,6 +423,14 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">原理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Arguments</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">闭包</a>
               </li>
             
             <div class="clearfix"></div>
