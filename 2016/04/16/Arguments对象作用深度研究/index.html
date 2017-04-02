@@ -14,7 +14,7 @@
 <meta property="og:url" content="http://qianniuer.github.io/2016/04/16/Arguments对象作用深度研究/index.html">
 <meta property="og:site_name" content="qianniuer">
 <meta property="og:description" content="每个函数都会有一个Arguments对象实例arguments，它引用着函数的实参，可以用数组下标的方式”[]”引用arguments的元素。arguments.length为函数实参个数，arguments.callee引用函数自身。">
-<meta property="og:updated_time" content="2017-04-02T08:18:08.363Z">
+<meta property="og:updated_time" content="2017-04-02T11:59:57.347Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Arguments对象作用深度研究">
 <meta name="twitter:description" content="每个函数都会有一个Arguments对象实例arguments，它引用着函数的实参，可以用数组下标的方式”[]”引用arguments的元素。arguments.length为函数实参个数，arguments.callee引用函数自身。">
@@ -198,7 +198,7 @@
 <h3 id="Arguments的作用"><a href="#Arguments的作用" class="headerlink" title="Arguments的作用"></a>Arguments的作用</h3><h4 id="方法重载"><a href="#方法重载" class="headerlink" title="方法重载"></a>方法重载</h4><p>方法重载是指在一个类中定义多个同名的方法，但要求每个方法具有不同的参数的类型或参数的个数。<br>Javascript并没有重载函数的功能，但是Arguments对象能够模拟重载。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//普通方法实现方法重载</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params">a,b,c</span>)</span>&#123;</div><div class="line">	<span class="keyword">if</span>(a &amp;&amp; b &amp;&amp; c)&#123;</div><div class="line">		<span class="built_in">console</span>.log(a + b + c);</div><div class="line">	&#125;<span class="keyword">else</span> <span class="keyword">if</span>(a &amp;&amp; b)&#123;</div><div class="line">		<span class="built_in">console</span>.log(a + b);</div><div class="line">	&#125;<span class="keyword">else</span>&#123;</div><div class="line">		<span class="built_in">console</span>.log(a);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">test();           <span class="comment">//undefined</span></div><div class="line">test(<span class="number">11</span>,<span class="number">12</span>);      <span class="comment">//23</span></div><div class="line">test(<span class="number">11</span>,<span class="number">12</span>,<span class="number">13</span>)    <span class="comment">//36</span></div></pre></td></tr></table></figure>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//Arguments对象实现方法重载</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="keyword">var</span> sum = <span class="number">0</span>;</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;<span class="built_in">arguments</span>.length;i++)&#123;</div><div class="line">		sum += <span class="built_in">arguments</span>[i];</div><div class="line">	&#125;</div><div class="line">	<span class="built_in">console</span>.log(sum);</div><div class="line">&#125;</div><div class="line"></div><div class="line">test();          <span class="comment">//0</span></div><div class="line">test(<span class="number">11</span>,<span class="number">12</span>);     <span class="comment">//23</span></div><div class="line">test(<span class="number">11</span>,<span class="number">12</span>,<span class="number">13</span>);  <span class="comment">//36</span></div></pre></td></tr></table></figure>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//ES6实现方法重载</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params">...nums</span>)</span>&#123;</div><div class="line">	<span class="keyword">var</span> sum = <span class="number">0</span>;</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;nums.length;i++)&#123;</div><div class="line">		sum += nums[i];</div><div class="line">	&#125;</div><div class="line">	<span class="built_in">console</span>.log(sum);</div><div class="line">&#125;</div><div class="line"></div><div class="line">test();          <span class="comment">//0</span></div><div class="line">test(<span class="number">11</span>,<span class="number">12</span>);     <span class="comment">//23</span></div><div class="line">test(<span class="number">11</span>,<span class="number">12</span>,<span class="number">13</span>);  <span class="comment">//36</span></div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">//ES6实现方法重载</div><div class="line"></div><div class="line">function test(...nums)&#123;</div><div class="line">	var sum = 0;</div><div class="line">	for(var i=0;i&lt;nums.length;i++)&#123;</div><div class="line">		sum += nums[i];</div><div class="line">	&#125;</div><div class="line">	console.log(sum);</div><div class="line">&#125;</div><div class="line"></div><div class="line">test();          //0</div><div class="line">test(11,12);     //23</div><div class="line">test(11,12,13);  //36</div></pre></td></tr></table></figure>
 <h4 id="递归调用"><a href="#递归调用" class="headerlink" title="递归调用"></a>递归调用</h4><p>这样的好处就是可以实现匿名函数的递归调用。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//实现一个阶乘函数</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">factorial</span>(<span class="params">n</span>)</span>&#123;</div><div class="line">	<span class="keyword">if</span>(n == <span class="number">1</span>)&#123;</div><div class="line">		<span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">	&#125;<span class="keyword">else</span>&#123;</div><div class="line">		n * <span class="built_in">arguments</span>.callee(n<span class="number">-1</span>);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">factorial(<span class="number">1</span>); <span class="comment">//1</span></div><div class="line">factorial(<span class="number">5</span>); <span class="comment">//120</span></div></pre></td></tr></table></figure>
 <h4 id="不定参问题"><a href="#不定参问题" class="headerlink" title="不定参问题"></a>不定参问题</h4><p>比如说，我想判断你传给我的一些数字的大小，取出最大的那个</p>
@@ -327,11 +327,11 @@
   
 <nav id="article-nav">
   
-    <a href="/2016/05/03/Ajax工作原理/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2016/04/16/JavaScript闭包(closure)/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          AJAX工作原理
+          JavaScript闭包（closure）
         
       </div>
     </a>
@@ -455,6 +455,70 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">闭包</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">励志</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">街道</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">最美</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">思考</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">扑克</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">乔布斯</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">语录</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">读书</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">读者</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">笔记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">周鸿祎</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">剧本</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">程序员</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">吴晓波</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">方法</a>
               </li>
             
             <div class="clearfix"></div>

@@ -162,6 +162,449 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-各阶段前端工程师都应该具备什么能力（JS篇）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="各阶段前端工程师都应该具备什么能力（JS篇）"><a href="#各阶段前端工程师都应该具备什么能力（JS篇）" class="headerlink" title="各阶段前端工程师都应该具备什么能力（JS篇）"></a>各阶段前端工程师都应该具备什么能力（JS篇）</h1><blockquote>
+<p>作为一名程序猿、攻城狮，要清楚自己的实力，自己所处的阶段，这样才能更好的扬长补短。常问自己几个问题：我最擅长什么，我比别人有哪些优势？我的短板在哪些方面？我在整个行业所处什么阶段，在这个阶段我该如何提升自己？<br>对于前端工程师等级的划分，每个人都可能有自己的理解，正所谓，一千个读者就有一千个哈姆雷特。下面是我对前端工程师划分的一些拙见。</p>
+</blockquote>
+<h2 id="一、入门菜鸟"><a href="#一、入门菜鸟" class="headerlink" title="一、入门菜鸟"></a>一、入门菜鸟</h2><p>这个阶段一般具备以下几点：</p>
+<ul>
+<li>基础的JavaScript编程能力</li>
+<li>基本能看懂别人写的代码</li>
+<li>有一定的代码调试能力</li>
+</ul>
+<p>举些例子：</p>
+<h3 id="1、怎样对字符串进行截取操作，你会想到哪些方法？"><a href="#1、怎样对字符串进行截取操作，你会想到哪些方法？" class="headerlink" title="1、怎样对字符串进行截取操作，你会想到哪些方法？"></a>1、怎样对字符串进行截取操作，你会想到哪些方法？</h3><p>substr() ,sibString(), split(), slice() …</p>
+<h3 id="2、给你一段代码，你能知道这段代码实现了什么功能，别人为什么要这么写？"><a href="#2、给你一段代码，你能知道这段代码实现了什么功能，别人为什么要这么写？" class="headerlink" title="2、给你一段代码，你能知道这段代码实现了什么功能，别人为什么要这么写？"></a>2、给你一段代码，你能知道这段代码实现了什么功能，别人为什么要这么写？</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> url = <span class="built_in">window</span>.location.href;</div><div class="line"><span class="keyword">if</span>(url === <span class="string">'http://www.xieliqun.com'</span>)&#123;</div><div class="line">	<span class="built_in">window</span>.location.href = <span class="string">'https://github.com/tsrot'</span>;</div><div class="line">&#125;<span class="keyword">else</span>&#123;</div><div class="line">	<span class="built_in">window</span>.location.href = <span class="string">'/404'</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="3、给你一段简单的错误代码，你能知道错在哪里，怎样去改正它？"><a href="#3、给你一段简单的错误代码，你能知道错在哪里，怎样去改正它？" class="headerlink" title="3、给你一段简单的错误代码，你能知道错在哪里，怎样去改正它？"></a>3、给你一段简单的错误代码，你能知道错在哪里，怎样去改正它？</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> foo = <span class="string">'hello world!'</span>;</div><div class="line"><span class="keyword">var</span> arr = [];</div><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;foo.length;i++)&#123;</div><div class="line">	<span class="keyword">var</span> fooArr = arr.push(foo[i]);</div><div class="line">	<span class="built_in">console</span>.log(fooArr);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="二、初级工程师"><a href="#二、初级工程师" class="headerlink" title="二、初级工程师"></a>二、初级工程师</h2><p>初级工程师应该能够：</p>
+<ul>
+<li>解决一些例如特效方面的问题</li>
+<li>能使用一些框架，例如jQuery、bootstrap等</li>
+<li>能使用ajax进行简单的前后通信</li>
+<li>能DOM编程解决一些问题</li>
+<li>能熟练使用浏览器的调试工具</li>
+<li>了解一些HTML 5 API</li>
+<li>了解ES5 规范</li>
+</ul>
+<p>举些例子：</p>
+<h3 id="1、怎样实现一个焦点图的效果？"><a href="#1、怎样实现一个焦点图的效果？" class="headerlink" title="1、怎样实现一个焦点图的效果？"></a>1、怎样实现一个焦点图的效果？</h3><p>在这个阶段只要能正确解决问题就好了。你可以自己去写代码实现，无论是原生，还是使用jQuery，你也可以百度去网上找一些焦点图的插件，或别人总结的方法。只要能够无错地完成需求，不考虑代码冗余之类的带来的性能问题。</p>
+<h3 id="2、使用jQuery完成一个简单的动画？"><a href="#2、使用jQuery完成一个简单的动画？" class="headerlink" title="2、使用jQuery完成一个简单的动画？"></a>2、使用jQuery完成一个简单的动画？</h3><p>假如完成一个可控制的球在水平面跳动的效果。你应该想怎样触发球，是hover还是click，球怎样跳动起来，是用css样式来控制，还是用jQuery的animate函数来执行动画。</p>
+<h3 id="3、怎样使用ajax完成用户名验证？"><a href="#3、怎样使用ajax完成用户名验证？" class="headerlink" title="3、怎样使用ajax完成用户名验证？"></a>3、怎样使用ajax完成用户名验证？</h3><p>你要完整的说出它的思路，首先用户输入完用户名，失去焦点（blur）后，然后通过ajax POST或者GET把用户名提交到后端，此时后端会给你一个接口，你把用户名传到这个接口，后端应该会返回一个true or false给你，根据返回的结果，作出相应的用户提示。</p>
+<h3 id="4、如何动态的插入、删除、替换一个DOM元素？"><a href="#4、如何动态的插入、删除、替换一个DOM元素？" class="headerlink" title="4、如何动态的插入、删除、替换一个DOM元素？"></a>4、如何动态的插入、删除、替换一个DOM元素？</h3><p>原生方法：appendChild()、removeChild()、innerHTML、replaceChild() …<br>jQuery方法：append()、empty()、html()、remove()、replaceAll() …</p>
+<h3 id="5、H5-新增了哪些API？"><a href="#5、H5-新增了哪些API？" class="headerlink" title="5、H5 新增了哪些API？"></a>5、H5 新增了哪些API？</h3><p>localStorage 、sessionStorage、ApplicationCache、postMessage、file、canvas …</p>
+<h3 id="6、ES5-比-ES3-有哪些新特性？"><a href="#6、ES5-比-ES3-有哪些新特性？" class="headerlink" title="6、ES5 比 ES3 有哪些新特性？"></a>6、ES5 比 ES3 有哪些新特性？</h3><p>语法上更严格了，定义变量必需使用var，否则报错。<br>对Object的控制更精确了，Object.defineProperty可控制对象的读写枚举等，更加丰富了一个对象。对数组Array和字符串 String也增加了一些方法，等等。</p>
+<h2 id="三-、中级工程师"><a href="#三-、中级工程师" class="headerlink" title="三 、中级工程师"></a>三 、中级工程师</h2><p>中级工程师应该具备：</p>
+<ul>
+<li>深入理解this、闭包、事件模型、原型和原型链、作用域链、继承等概念</li>
+<li>尽量使用ES5编写代码，了解ES6</li>
+<li>熟悉前后端通信方式</li>
+<li>熟悉一些前端技术框架设计思想、优劣势等</li>
+<li>熟悉模块化、面向对象、MVC等编程思想</li>
+<li>能自己独立封装一些组件</li>
+<li>编码时尽量考虑性能优化</li>
+<li>了解常见的http状态码</li>
+<li>了解前端工程化思想</li>
+<li>了解一些最新的技术框架等</li>
+<li>了解函数式编程思想</li>
+</ul>
+<p>举些例子：自找答案</p>
+<ol>
+<li>setTimeout中function里面的this指向什么？</li>
+<li>写一个最常见的闭包问题？</li>
+<li>如何深度克隆一个对象？</li>
+<li>前后端有哪些通信方式？</li>
+<li>jQuery里的ready函数是怎样实现的，和原生的load有什么不同？</li>
+<li>谈谈commonJS和AMD的区别？</li>
+<li>JavaScript是如何实现面向对象的？</li>
+<li>谈一谈JavaScript的性能优化问题？</li>
+<li>bower、grunt、gulp、yeoman、webpack的了解？</li>
+<li>JavaScript的异步编程？</li>
+</ol>
+<h2 id="四、高级工程师"><a href="#四、高级工程师" class="headerlink" title="四、高级工程师"></a>四、高级工程师</h2><p>高级前端工程师应该具备：</p>
+<ul>
+<li>使用前端工程化思维开发</li>
+<li>JavaScript对DOM操作的各种方式与性能开销</li>
+<li>熟悉RESTful架构、跨域等技术</li>
+<li>能对代码进行良好的性能优化</li>
+<li>了解常用框架功能原理的代码实现</li>
+<li>熟悉前端开发的一些安全问题</li>
+<li>熟悉常见跨浏览器问题</li>
+<li>了解必要的计算机网络协议</li>
+<li>熟悉JavaScript的前后端开发</li>
+<li>熟悉各种开发设计模式</li>
+<li>了解前端的一些测试方法</li>
+</ul>
+<p>举些例子：自找答案</p>
+<ol>
+<li>如何解决回调层级过深的问题？</li>
+<li>CORS跨域的原理？</li>
+<li>谈谈各种本地存储方案的优势与弊端？</li>
+<li>JS延迟加载的方式有哪些？</li>
+<li>哪些操作会造成内存泄漏？</li>
+<li>写一个通用的事件侦听器函数？</li>
+<li>介绍一下XSS和CSRF的原理和防范？</li>
+<li>如何实现一个简易个模块管理库？</li>
+<li>介绍for in的技术细节与性能问题？</li>
+<li>jQuery操作DOM细节？</li>
+<li>谈谈JS的满加载和断点续调问题？</li>
+<li>如何实现JS的依赖注入？</li>
+</ol>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/04/02/各阶段前端工程师都应该具备什么能力（JS篇）/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-史蒂夫·乔布斯十三句发人深省的经典名言" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/01/15/史蒂夫·乔布斯十三句发人深省的经典名言/">史蒂夫·乔布斯十三句发人深省的经典名言</a>
+    </h1>
+  
+
+        
+        <a href="/2017/01/15/史蒂夫·乔布斯十三句发人深省的经典名言/" class="archive-article-date">
+  	<time datetime="2017-01-15T13:01:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="史蒂夫·乔布斯十三句发人深省的经典名言"><a href="#史蒂夫·乔布斯十三句发人深省的经典名言" class="headerlink" title="史蒂夫·乔布斯十三句发人深省的经典名言"></a>史蒂夫·乔布斯十三句发人深省的经典名言</h2><p>转自 <a href="http://www.feng.com/apple/news/2014-04-15/Steve_Jobs_thirteen_thought-provoking_classic_saying_581742.shtml">威锋网</a></p>
+<blockquote>
+<p>史蒂夫·乔布斯，一个传奇的人物，他遗留下来的遗产不仅仅包含当今世界上最成功的科技公司，还有他那些曾经激励过无数人的直言不讳。日前，外媒《商业内幕》收录了史蒂夫·乔布斯 13 句经典的名言，我们再次来一起缅怀。 </p>
+</blockquote>
+<p>以下为文章全文：</p>
+<p><img src="http://resource.feng.com/resource/h031/h23/img201404151531330.jpg" alt=""></p>
+<p>　　史蒂夫·乔布斯，一个传奇的人物，他遗留下来的遗产不仅仅包含当今世界上最成功的科技公司，还有他那些曾经激励过无数人的直言不讳。日前，外媒《商业内幕》收录了史蒂夫·乔布斯 13 句经典的名言，我们再次来一起缅怀：<br>
+        
+          <a class="article-more-a" href="/2017/01/15/史蒂夫·乔布斯十三句发人深省的经典名言/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">乔布斯</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">语录</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/读者集萃/" class="article-tag-list-link color5">读者集萃</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/01/15/史蒂夫·乔布斯十三句发人深省的经典名言/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-windowName跨域详解" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/01/12/windowName跨域详解/">window.name跨域详解</a>
+    </h1>
+  
+
+        
+        <a href="/2017/01/12/windowName跨域详解/" class="archive-article-date">
+  	<time datetime="2017-01-12T02:37:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-12</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p> window.name属性的神奇之处在于name 值在不同的页面（甚至不同域名）加载后依旧存在（如果没修改则值不会变化），并且可以支持非常长的 name 值（2MB）。并且window.name很方便。</p>
+</blockquote>
+<hr>
+        
+          <a class="article-more-a" href="/2017/01/12/windowName跨域详解/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">原理</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/读者集萃/" class="article-tag-list-link color5">读者集萃</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/01/12/windowName跨域详解/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-关于扑克，你知道多少？" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/11/27/关于扑克，你知道多少？/">关于扑克，你知道多少？</a>
+    </h1>
+  
+
+        
+        <a href="/2016/11/27/关于扑克，你知道多少？/" class="archive-article-date">
+  	<time datetime="2016-11-27T00:56:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-11-27</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>一付扑克牌共有54张，13种数字，每种数字有4张，也有4种花色，分别是黑桃、红桃、梅花和方块。代表一年中的春、夏、秋、冬四季。黑桃、梅花为黑色，即代表黑夜，红桃、方块为红色，即代表白天。</p>
+<p>扑克牌中的字母也有特别的含义，比如说“A”在扑克牌中指“至尊”，意为扭转乾坤之王牌。“K”指“国王”，“Q”指“王后。“J”指的是“宫内的仆人杰克”。</p>
+<p>扑克牌中的J、Q、K共12张，代表一年有12个月。除大、小王外，共52张，说明一年有52个星期。而扑克牌中每种花色共13张，说明每个季节正好13个星期。如果把扑克牌的点数相加，J作11点，Q作12点，K作13点，大、小王各作半点，正好365点，表示一年有365天。如果是闰年，把大、小王各作一点，刚好366点<br>
+        
+          <a class="article-more-a" href="/2016/11/27/关于扑克，你知道多少？/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">思考</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">扑克</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/读者集萃/" class="article-tag-list-link color5">读者集萃</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/11/27/关于扑克，你知道多少？/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-html5 API postMessage跨域详解" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/11/12/html5 API postMessage跨域详解/">html5 API postMessage跨域详解</a>
+    </h1>
+  
+
+        
+        <a href="/2016/11/12/html5 API postMessage跨域详解/" class="archive-article-date">
+  	<time datetime="2016-11-12T08:37:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-11-12</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>window.postMessage(message,targetOrigin) 方法是html5新引进的特性，可以使用它来向其它的window对象发送消息，无论这个window对象是属于同源或不同源，目前IE8+、FireFox、Chrome、Opera等浏览器都已经支持window.postMessage方法。</p>
+</blockquote>
+<hr>
+        
+          <a class="article-more-a" href="/2016/11/12/html5 API postMessage跨域详解/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">原理</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/读者集萃/" class="article-tag-list-link color5">读者集萃</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/11/12/html5 API postMessage跨域详解/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-JS中的call、apply、bind方法详解" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -223,6 +666,234 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2016/10/12/JS中的call、apply、bind方法详解/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-深入了解JavaScript，优化作用域链（2）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/09/21/深入了解JavaScript，优化作用域链（2）/">深入了解JavaScript，优化作用域链（2）</a>
+    </h1>
+  
+
+        
+        <a href="/2016/09/21/深入了解JavaScript，优化作用域链（2）/" class="archive-article-date">
+  	<time datetime="2016-09-21T08:45:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-09-21</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>作为一个良好的开发者必需考虑程序的运行性能，作用域链的层级关系是JavaScript性能优化的一个重要部分。因为这关系到变量在内存里的读写速度。</p>
+</blockquote>
+<hr>
+        
+          <a class="article-more-a" href="/2016/09/21/深入了解JavaScript，优化作用域链（2）/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Arguments</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/读者集萃/" class="article-tag-list-link color5">读者集萃</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/09/21/深入了解JavaScript，优化作用域链（2）/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-折腾：coding.net IDE node环境的安装" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/09/11/折腾：coding.net IDE node环境的安装/">coding.net IDE node环境的安装</a>
+    </h1>
+  
+
+        
+        <a href="/2016/09/11/折腾：coding.net IDE node环境的安装/" class="archive-article-date">
+  	<time datetime="2016-09-11T08:45:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-09-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="gt-作为一个码农，我们经常会有这样一个痛点：项目出现一个紧急bug，但自己又不在公司，怎办呢？虽然项目可能在git或者svn上，但clone下来安装测试环境也是个麻烦的是啊。于是，我们想到了在线IDE。作为一个前端开发者nodeJS环境是非常重要的，今天花了一个多小时折腾了下coding-net。"><a href="#gt-作为一个码农，我们经常会有这样一个痛点：项目出现一个紧急bug，但自己又不在公司，怎办呢？虽然项目可能在git或者svn上，但clone下来安装测试环境也是个麻烦的是啊。于是，我们想到了在线IDE。作为一个前端开发者nodeJS环境是非常重要的，今天花了一个多小时折腾了下coding-net。" class="headerlink" title="&gt; 作为一个码农，我们经常会有这样一个痛点：项目出现一个紧急bug，但自己又不在公司，怎办呢？虽然项目可能在git或者svn上，但clone下来安装测试环境也是个麻烦的是啊。于是，我们想到了在线IDE。作为一个前端开发者nodeJS环境是非常重要的，今天花了一个多小时折腾了下coding.net。"></a>&gt; 作为一个码农，我们经常会有这样一个痛点：项目出现一个紧急bug，但自己又不在公司，怎办呢？虽然项目可能在git或者svn上，但clone下来安装测试环境也是个麻烦的是啊。于是，我们想到了在线IDE。作为一个前端开发者nodeJS环境是非常重要的，今天花了一个多小时折腾了下<a href="https://ide.coding.net">coding.net</a>。</h2>
+        
+          <a class="article-more-a" href="/2016/09/11/折腾：coding.net IDE node环境的安装/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Arguments</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/读者集萃/" class="article-tag-list-link color5">读者集萃</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/09/11/折腾：coding.net IDE node环境的安装/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-模仿知乎界面的一个简单React demo" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/08/09/模仿知乎界面的一个简单React demo/">模仿知乎界面的一个简单React demo</a>
+    </h1>
+  
+
+        
+        <a href="/2016/08/09/模仿知乎界面的一个简单React demo/" class="archive-article-date">
+  	<time datetime="2016-08-09T08:37:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-08-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="gt-这是一个模仿知乎界面的简单React-demo。这个React-demo能让你从零开始学习React，并逐渐掌握React。它包括了一个项目从零到项目完成的整个过程。"><a href="#gt-这是一个模仿知乎界面的简单React-demo。这个React-demo能让你从零开始学习React，并逐渐掌握React。它包括了一个项目从零到项目完成的整个过程。" class="headerlink" title="&gt; 这是一个模仿知乎界面的简单React demo。这个React demo能让你从零开始学习React，并逐渐掌握React。它包括了一个项目从零到项目完成的整个过程。"></a>&gt; 这是一个模仿知乎界面的简单React demo。这个React demo能让你从零开始学习React，并逐渐掌握React。它包括了一个项目从零到项目完成的整个过程。</h2>
+        
+          <a class="article-more-a" href="/2016/08/09/模仿知乎界面的一个简单React demo/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Arguments</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/读者集萃/" class="article-tag-list-link color5">读者集萃</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/08/09/模仿知乎界面的一个简单React demo/">展开全文 >></a>
         </p>
       
 
@@ -317,474 +988,10 @@
 
 
   
-    <article id="post-Githup+hexo生成博客" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/08/06/Githup+hexo生成博客/">React学习资源汇总</a>
-    </h1>
-  
-
-        
-        <a href="/2016/08/06/Githup+hexo生成博客/" class="archive-article-date">
-  	<time datetime="2016-08-06T02:37:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-08-06</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>体验更加排版请访问原文链接：<a href="http://blog.liuxianan.com/build-blog-website-by-hexo-github.html">http://blog.liuxianan.com/build-blog-website-by-hexo-github.html</a></p>
-<p>使用github pages服务搭建博客的好处有：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">- 全是静态文件，访问速度快；</div><div class="line">- 免费方便，不用花一分钱就可以搭建一个自由的个人博客，不需要服务器不需要后台；</div><div class="line">- 可以随意绑定自己的域名，不仔细看的话根本看不出来你的网站是基于github的；</div><div class="line">- 数据绝对安全，基于github的版本管理，想恢复到哪个历史版本都行；</div><div class="line">- 博客内容可以轻松打包、转移、发布到其它平台；</div><div class="line">- 等等；</div></pre></td></tr></table></figure></p>
-</blockquote>
-<hr>
-        
-          <a class="article-more-a" href="/2016/08/06/Githup+hexo生成博客/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">原理</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/读者集萃/" class="article-tag-list-link color5">读者集萃</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/08/06/Githup+hexo生成博客/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-JavaScript中this指向" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/17/JavaScript中this指向/">JavaScript中this指向</a>
-    </h1>
-  
-
-        
-        <a href="/2016/05/17/JavaScript中this指向/" class="archive-article-date">
-  	<time datetime="2016-05-17T08:37:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-05-17</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="JavaScript中this指向"><a href="#JavaScript中this指向" class="headerlink" title="JavaScript中this指向"></a>JavaScript中this指向</h1><hr>
-<blockquote>
-<p>对于JavaScript初学者来说，this指针的指向问题一直是很混乱的问题。在不同的场景下，this会化身不同的对象。有一种观点认为，只有正确掌握了<br>JavaScript 中的 this 关键字，才算是迈入了 JavaScript<br>这门语言的门槛。在主流的面向对象的语言中（例如Java,C#等)，this 含义是明确且具体的，即指向当前对象。一般在编译期绑定。而<br>JavaScript 中this 在运行期进行绑定的，这是JavaScript 中this 关键字具备多重含义的本质原因。</p>
-</blockquote>
-<p>随着函数使用场合的不同，this的值会发生变化。但是有一个总的原则，那就是this指的是，<strong>调用函数的那个对象</strong>。</p>
-<hr>
-        
-          <a class="article-more-a" href="/2016/05/17/JavaScript中this指向/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">原理</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/读者集萃/" class="article-tag-list-link color5">读者集萃</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/05/17/JavaScript中this指向/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-Ajax工作原理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/03/Ajax工作原理/">AJAX工作原理</a>
-    </h1>
-  
-
-        
-        <a href="/2016/05/03/Ajax工作原理/" class="archive-article-date">
-  	<time datetime="2016-05-03T01:03:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-05-03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="gt-AJAX-是一种用于创建快速动态网页的技术。通过在后台与服务器进行少量数据交换，AJAX-可以使网页实现异步更新。这意味着可以在不重新加载整个网页的情况下，对网页的某部分进行更新。"><a href="#gt-AJAX-是一种用于创建快速动态网页的技术。通过在后台与服务器进行少量数据交换，AJAX-可以使网页实现异步更新。这意味着可以在不重新加载整个网页的情况下，对网页的某部分进行更新。" class="headerlink" title="&gt; AJAX 是一种用于创建快速动态网页的技术。通过在后台与服务器进行少量数据交换，AJAX 可以使网页实现异步更新。这意味着可以在不重新加载整个网页的情况下，对网页的某部分进行更新。"></a>&gt; AJAX 是一种用于创建快速动态网页的技术。通过在后台与服务器进行少量数据交换，AJAX 可以使网页实现异步更新。这意味着可以在不重新加载整个网页的情况下，对网页的某部分进行更新。</h2>
-        
-          <a class="article-more-a" href="/2016/05/03/Ajax工作原理/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">原理</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/读者集萃/" class="article-tag-list-link color5">读者集萃</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/05/03/Ajax工作原理/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-Arguments对象作用深度研究" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/16/Arguments对象作用深度研究/">Arguments对象作用深度研究</a>
-    </h1>
-  
-
-        
-        <a href="/2016/04/16/Arguments对象作用深度研究/" class="archive-article-date">
-  	<time datetime="2016-04-16T08:37:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-04-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>每个函数都会有一个Arguments对象实例arguments，它引用着函数的实参，可以用数组下标的方式”[]”引用arguments的元素。arguments.length为函数实参个数，arguments.callee引用函数自身。</p>
-</blockquote>
-<hr>
-        
-          <a class="article-more-a" href="/2016/04/16/Arguments对象作用深度研究/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Arguments</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/读者集萃/" class="article-tag-list-link color5">读者集萃</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/04/16/Arguments对象作用深度研究/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-JS的原型和原型链" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/16/JS的原型和原型链/">JS的原型和原型链</a>
-    </h1>
-  
-
-        
-        <a href="/2016/04/16/JS的原型和原型链/" class="archive-article-date">
-  	<time datetime="2016-04-16T08:37:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-04-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>在JavaScript的使用过程中，我们经常会遇到prototype，可能了解一点，它是一个对象的原型，用来做原型继承的。这样去理解就有点不准确了，今天就让我们深入的去了解它。</p>
-</blockquote>
-<hr>
-        
-          <a class="article-more-a" href="/2016/04/16/JS的原型和原型链/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">原理</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/读者集萃/" class="article-tag-list-link color5">读者集萃</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/04/16/JS的原型和原型链/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-JavaScript闭包(closure)" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/16/JavaScript闭包(closure)/">JavaScript闭包（closure）</a>
-    </h1>
-  
-
-        
-        <a href="/2016/04/16/JavaScript闭包(closure)/" class="archive-article-date">
-  	<time datetime="2016-04-16T08:37:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-04-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>JavaScript变量分为全局变量和局部变量。Javascript语言的特殊之处，就在于函数内部可以直接读取全局变量，而在函数外部自然无法读取函数内的局部变量。当你需要在函数外调用函数内的局部变量时，此时就要用到一些方法。这个过程就是闭包。</p>
-</blockquote>
-<hr>
-        
-          <a class="article-more-a" href="/2016/04/16/JavaScript闭包(closure)/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">闭包</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/读者集萃/" class="article-tag-list-link color5">读者集萃</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/04/16/JavaScript闭包(closure)/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
+    <nav id="page-nav">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+    </nav>
   
 
 
@@ -887,6 +1094,70 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">闭包</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">励志</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">街道</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">最美</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">思考</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">扑克</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">乔布斯</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">语录</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">读书</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">读者</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">笔记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">周鸿祎</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">剧本</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">程序员</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">吴晓波</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">方法</a>
               </li>
             
             <div class="clearfix"></div>
