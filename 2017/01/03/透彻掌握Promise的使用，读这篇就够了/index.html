@@ -8,16 +8,16 @@
   <link rel="dns-prefetch" href="http://qianniuer.github.io">
   <title>透彻掌握Promise的使用，读这篇就够了 | qianniuer</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="&amp;gt; Promise的重要性我认为我没有必要多讲，概括起来说就是必须得掌握，而且还要掌握透彻。这篇文章的开头，主要跟大家分析一下，为什么会有Promise出现。">
+  <meta name="description" content="Promise的重要性我认为我没有必要多讲，概括起来说就是必须得掌握，而且还要掌握透彻。这篇文章的开头，主要跟大家分析一下，为什么会有Promise出现。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="透彻掌握Promise的使用，读这篇就够了">
 <meta property="og:url" content="http://qianniuer.github.io/2017/01/03/透彻掌握Promise的使用，读这篇就够了/index.html">
 <meta property="og:site_name" content="qianniuer">
-<meta property="og:description" content="&amp;gt; Promise的重要性我认为我没有必要多讲，概括起来说就是必须得掌握，而且还要掌握透彻。这篇文章的开头，主要跟大家分析一下，为什么会有Promise出现。">
-<meta property="og:updated_time" content="2017-04-03T12:44:42.116Z">
+<meta property="og:description" content="Promise的重要性我认为我没有必要多讲，概括起来说就是必须得掌握，而且还要掌握透彻。这篇文章的开头，主要跟大家分析一下，为什么会有Promise出现。">
+<meta property="og:updated_time" content="2017-04-03T12:51:48.013Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="透彻掌握Promise的使用，读这篇就够了">
-<meta name="twitter:description" content="&amp;gt; Promise的重要性我认为我没有必要多讲，概括起来说就是必须得掌握，而且还要掌握透彻。这篇文章的开头，主要跟大家分析一下，为什么会有Promise出现。">
+<meta name="twitter:description" content="Promise的重要性我认为我没有必要多讲，概括起来说就是必须得掌握，而且还要掌握透彻。这篇文章的开头，主要跟大家分析一下，为什么会有Promise出现。">
   
     <link rel="alternative" href="/atom.xml" title="qianniuer" type="application/atom+xml">
   
@@ -181,10 +181,15 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="gt-Promise的重要性我认为我没有必要多讲，概括起来说就是必须得掌握，而且还要掌握透彻。这篇文章的开头，主要跟大家分析一下，为什么会有Promise出现。"><a href="#gt-Promise的重要性我认为我没有必要多讲，概括起来说就是必须得掌握，而且还要掌握透彻。这篇文章的开头，主要跟大家分析一下，为什么会有Promise出现。" class="headerlink" title="&gt; Promise的重要性我认为我没有必要多讲，概括起来说就是必须得掌握，而且还要掌握透彻。这篇文章的开头，主要跟大家分析一下，为什么会有Promise出现。"></a>&gt; Promise的重要性我认为我没有必要多讲，概括起来说就是必须得掌握，而且还要掌握透彻。这篇文章的开头，主要跟大家分析一下，为什么会有Promise出现。</h2><a id="more"></a>
-<blockquote>
-<p>在实际的使用当中，有非常多的应用场景我们不能立即知道应该如何继续往下执行。最重要也是最主要的一个场景就是ajax请求。通俗来说，由于网速的不同，可能你得到返回值的时间也是不同的，这个时候我们就需要等待，结果出来了之后才知道怎么样继续下去。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">// 简单的ajax原生实现</div><div class="line">var url = &apos;https://hq.tigerbrokers.com/fundamental/finance_calendar/getType/2016-02-26/2016-06-10&apos;;</div><div class="line">var result;</div><div class="line"></div><div class="line">var XHR = new XMLHttpRequest();</div><div class="line">XHR.open(&apos;GET&apos;, url, true);</div><div class="line">XHR.send();</div><div class="line"></div><div class="line">XHR.onreadystatechange = function() &#123;</div><div class="line">    if (XHR.readyState == 4 &amp;&amp; XHR.status == 200) &#123;</div><div class="line">        result = XHR.response;</div><div class="line">        console.log(result);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+        <blockquote>
+<p>Promise的重要性我认为我没有必要多讲，概括起来说就是必须得掌握，而且还要掌握透彻。这篇文章的开头，主要跟大家分析一下，为什么会有Promise出现。</p>
 </blockquote>
+<hr>
+<a id="more"></a>
+<blockquote>
+<p>在实际的使用当中，有非常多的应用场景我们不能立即知道应该如何继续往下执行。最重要也是最主要的一个场景就是ajax请求。通俗来说，由于网速的不同，可能你得到返回值的时间也是不同的，这个时候我们就需要等待，结果出来了之后才知道怎么样继续下去。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">// 简单的ajax原生实现</div><div class="line">var url = &apos;https://hq.tigerbrokers.com/fundamental/finance_calendar/getType/2016-02-26/2016-06-10&apos;;</div><div class="line">var result;</div><div class="line"></div><div class="line">var XHR = new XMLHttpRequest();</div><div class="line">XHR.open(&apos;GET&apos;, url, true);</div><div class="line">XHR.send();</div><div class="line"></div><div class="line">XHR.onreadystatechange = function() &#123;</div><div class="line">    if (XHR.readyState == 4 &amp;&amp; XHR.status == 200) &#123;</div><div class="line">        result = XHR.response;</div><div class="line">        console.log(result);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>在ajax的原生实现中，利用了onreadystatechange事件，当该事件触发并且符合一定条件时，才能拿到我们想要的数据，之后我们才能开始处理数据。<br>这样做看上去并没有什么麻烦，但是如果这个时候，我们还需要做另外一个ajax请求，这个新的ajax请求的其中一个参数，得从上一个ajax请求中获取，这个时候我们就不得不如下这样做：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">var url = &apos;https://hq.tigerbrokers.com/fundamental/finance_calendar/getType/2016-02-26/2016-06-10&apos;;</div><div class="line">var result;</div><div class="line"></div><div class="line">var XHR = new XMLHttpRequest();</div><div class="line">XHR.open(&apos;GET&apos;, url, true);</div><div class="line">XHR.send();</div><div class="line"></div><div class="line">XHR.onreadystatechange = function() &#123;</div><div class="line">    if (XHR.readyState == 4 &amp;&amp; XHR.status == 200) &#123;</div><div class="line">        result = XHR.response;</div><div class="line">        console.log(result);</div><div class="line"></div><div class="line">        // 伪代码</div><div class="line">        var url2 = &apos;http:xxx.yyy.com/zzz?ddd=&apos; + result.someParams;</div><div class="line">        var XHR2 = new XMLHttpRequest();</div><div class="line">        XHR2.open(&apos;GET&apos;, url, true);</div><div class="line">        XHR2.send();</div><div class="line">        XHR2.onreadystatechange = function() &#123;</div><div class="line">            ...</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>当出现第三个ajax(甚至更多)仍然依赖上一个请求的时候，我们的代码就变成了一场灾难。这场灾难，往往也被称为<code>回调地狱</code>。</p>
 <hr>
