@@ -6,17 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://qianniuer.github.io">
-  <title>Tag: 笑话 | qianniuer</title>
+  <title>ES6新特性：类(Class)和继承(Extends) | qianniuer</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="记录生活">
-<meta property="og:type" content="website">
-<meta property="og:title" content="qianniuer">
-<meta property="og:url" content="http://qianniuer.github.io/tags/笑话/index.html">
+  <meta name="description" content="ES6提供了更接近传统语言的写法，引入了Class（类）这个概念，作为对象的模板。通过class关键字，可以定义类。基本上，ES6的class可以看作只是一个语法糖，它的绝大部分功能，ES5都可以做到，新的class写法只是让对象原型的写法更加清晰、更像面向对象编程的语法而已。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ES6新特性：类(Class)和继承(Extends)">
+<meta property="og:url" content="http://qianniuer.github.io/2016/10/04/ES6新特性5：类(Class)和继承(Extends)/index.html">
 <meta property="og:site_name" content="qianniuer">
-<meta property="og:description" content="记录生活">
+<meta property="og:description" content="ES6提供了更接近传统语言的写法，引入了Class（类）这个概念，作为对象的模板。通过class关键字，可以定义类。基本上，ES6的class可以看作只是一个语法糖，它的绝大部分功能，ES5都可以做到，新的class写法只是让对象原型的写法更加清晰、更像面向对象编程的语法而已。">
+<meta property="og:updated_time" content="2017-04-03T10:02:26.849Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="qianniuer">
-<meta name="twitter:description" content="记录生活">
+<meta name="twitter:title" content="ES6新特性：类(Class)和继承(Extends)">
+<meta name="twitter:description" content="ES6提供了更接近传统语言的写法，引入了Class（类）这个概念，作为对象的模板。通过class关键字，可以定义类。基本上，ES6的class可以看作只是一个语法糖，它的绝大部分功能，ES5都可以做到，新的class写法只是让对象原型的写法更加清晰、更像面向对象编程的语法而已。">
   
     <link rel="alternative" href="/atom.xml" title="qianniuer" type="application/atom+xml">
   
@@ -160,75 +161,219 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-ES6新特性5：类(Class)和继承(Extends)" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2014" class="archive-year">2014</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2014/07/06/程序员笑话之极品对答/" class="archive-article-date">
-  	<time datetime="2014-07-06T07:29:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2014-07-06</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2014/07/06/程序员笑话之极品对答/">程序员笑话之极品对答</a>
+    <h1 class="article-title" itemprop="name">
+      ES6新特性：类(Class)和继承(Extends)
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2016/10/04/ES6新特性5：类(Class)和继承(Extends)/" class="archive-article-date">
+  	<time datetime="2016-10-04T01:42:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-10-04</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>ES6提供了更接近传统语言的写法，引入了Class（类）这个概念，作为对象的模板。通过class关键字，可以定义类。基本上，ES6的class可以看作只是一个语法糖，它的绝大部分功能，ES5都可以做到，新的class写法只是让对象原型的写法更加清晰、更像面向对象编程的语法而已。</p>
+</blockquote>
+<hr>
+<a id="more"></a>
+<p>##一、类（Class）</p>
+<p>　　1.基本语法</p>
+<p>　　JavaScript语言的传统方法是通过构造函数，定义并生成新对象。下面是一个例子<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">function Point(x, y) &#123;</div><div class="line">    this.x = x;</div><div class="line">    this.y = y;</div><div class="line">&#125;</div><div class="line"></div><div class="line">Point.prototype.toString = function () &#123;</div><div class="line">    return &apos;(&apos; + this.x + &apos;, &apos; + this.y + &apos;)&apos;;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">var p = new Point(1, 2);</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>上面的代码用ES6的“类”改写，就是下面这样。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">//定义类</div><div class="line">class Point &#123;</div><div class="line">    constructor(x, y) &#123;    //constructor 构造方法</div><div class="line">        this.x = x;</div><div class="line">        this.y = y;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    toString() &#123;</div><div class="line">        return &apos;(&apos; + this.x + &apos;, &apos; + this.y + &apos;)&apos;;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var p = new Point(1, 2);</div></pre></td></tr></table></figure></p>
+</blockquote>
+<p>构造函数的prototype属性，在ES6的“类”上面继续存在。事实上，类的所有方法都还是定义在类的prototype属性上面。<br>　2.constructor方法</p>
+<p>　　constructor方法是类的默认方法，通过new命令生成对象实例时，自动调用该方法。一个类必须有constructor方法，如果没有显式定义，一个空的constructor方法会被默认添加。</p>
+<p>##二、继承（Extends）</p>
+<p>　　Class之间可以通过extends关键字实现继承，这比ES5的通过修改原型链实现继承，要清晰和方便很多。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">class ColorPoint extends Point &#123;</div><div class="line">    constructor(x, y, color) &#123;</div><div class="line">        super(x, y); // 调用父类的constructor(x, y)</div><div class="line">        this.color = color;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    toString() &#123;</div><div class="line">        return this.color + &apos; &apos; + super.toString(); // 调用父类的toString()</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>上面代码中，constructor方法和toString方法之中，都出现了super关键字，它在这里表示父类的构造函数，用来新建父类的this对象。</p>
+<p>　　子类必须在constructor方法中调用super方法，否则新建实例时会报错。这是因为子类没有自己的this对象，而是继承父类的this对象，然后对其进行加工。如果不调用super方法，子类就得不到this对象。</p>
+<p>##三、原生构造函数继承</p>
+<blockquote>
+<p>原生构造函数是指语言内置的构造函数，通常用来生成数据结构。ECMAScript的原生构造函数大致有下面这些。以前，这些原生构造函数是无法继承的。</p>
+</blockquote>
+<p>Boolean()<br>Number()<br>String()<br>Array()<br>Date()<br>Function()<br>RegExp()<br>Error()<br>Object()</p>
+<blockquote>
+<p>ES6允许继承原生构造函数定义子类，因为ES6是先新建父类的实例对象this，然后再用子类的构造函数修饰this，使得父类的所有行为都可以继承。下面是一个继承Array的例子。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">class MyArray extends Array &#123;</div><div class="line">    constructor(...args) &#123;</div><div class="line">        super(...args);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var arr = new MyArray();</div><div class="line">arr[0] = 12;</div><div class="line">arr.length // 1</div><div class="line"></div><div class="line">arr.length = 0;</div><div class="line">arr[0] // undefined</div></pre></td></tr></table></figure>
+<p>上面代码定义了一个MyArray类，继承了Array构造函数，因此就可以从MyArray生成数组的实例。这意味着，ES6可以自定义原生数据结构（比如Array、String等）的子类，这是ES5无法做到的。</p>
+<p>##四、Class的Generator方法</p>
+<p>　　如果某个方法之前加上星号（*），就表示该方法是一个Generator函数。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">class Foo &#123;</div><div class="line">    constructor(...args) &#123;</div><div class="line">        this.args = args;</div><div class="line">    &#125;</div><div class="line">    * [Symbol.iterator]() &#123;</div><div class="line">        for (let arg of this.args) &#123;</div><div class="line">            yield arg;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">for (let x of new Foo(&apos;hello&apos;, &apos;world&apos;)) &#123;</div><div class="line">    console.log(x);</div><div class="line">&#125;</div><div class="line">// hello</div><div class="line">// world</div></pre></td></tr></table></figure>
+<p>上面代码中，Foo类的Symbol.iterator方法前有一个星号，表示该方法是一个Generator函数。Symbol.iterator方法返回一个Foo类的默认遍历器，for…of循环会自动调用这个遍历器。</p>
+<p>##五、Class的静态方法</p>
+<blockquote>
+<p>类相当于实例的原型，所有在类中定义的方法，都会被实例继承。如果在一个方法前，加上static关键字，就表示该方法不会被实例继承，而是直接通过类来调用，这就称为“静态方法”。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">class Foo &#123;</div><div class="line">    static classMethod() &#123;</div><div class="line">        return &apos;hello&apos;;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">Foo.classMethod() // &apos;hello&apos;</div><div class="line"></div><div class="line">var foo = new Foo();</div><div class="line">foo.classMethod()</div><div class="line">// TypeError: foo.classMethod is not a function</div></pre></td></tr></table></figure></p>
+</blockquote>
+<p>上面代码中，Foo类的classMethod方法前有static关键字，表明该方法是一个静态方法，可以直接在Foo类上调用（Foo.classMethod()），而不是在Foo类的实例上调用。如果在实例上调用静态方法，会抛出一个错误，表示不存在该方法。</p>
+<ul>
+<li>父类的静态方法，可以被子类继承。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">class Foo &#123;</div><div class="line">    static classMethod() &#123;</div><div class="line">        return &apos;hello&apos;;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">class Bar extends Foo &#123;</div><div class="line">&#125;</div><div class="line"></div><div class="line">Bar.classMethod(); // &apos;hello&apos;</div></pre></td></tr></table></figure>
+<p>上面代码中，父类Foo有一个静态方法，子类Bar可以调用这个方法。</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/weixin.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/zhifu.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">程序员</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笑话</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">ES6新特性</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/读者集萃/" class="article-tag-list-link color5">读者集萃</a>
+        			<a href="/categories/ES6/" class="article-tag-list-link color4">ES6</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://qianniuer.github.io/2016/10/04/ES6新特性5：类(Class)和继承(Extends)/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2016/10/12/JS中的call、apply、bind方法详解/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          JS中的call、apply、bind方法详解
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2016/09/21/深入了解JavaScript，优化作用域链（2）/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">深入了解JavaScript，优化作用域链（2）</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+
+  
+    <div class="duoshuo"></div>
   
 
-    
+
 
 
           </div>
@@ -251,9 +396,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		root: "/",
