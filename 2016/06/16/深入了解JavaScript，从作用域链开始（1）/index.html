@@ -8,16 +8,16 @@
   <link rel="dns-prefetch" href="http://qianniuer.github.io">
   <title>深入了解JavaScript，从作用域链开始（1） | qianniuer</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="&amp;gt; 作用域是每种计算机语言最重要的基础之一，当然它也是JavaScript最重要的概念之一。要想真正的深入了解JavaScript，了解JavaScript的作用域链非常必要。现在让我们深入了解JavaScript作用域和作用域链的工作原理">
+  <meta name="description" content="作用域是每种计算机语言最重要的基础之一，当然它也是JavaScript最重要的概念之一。要想真正的深入了解JavaScript，了解JavaScript的作用域链非常必要。现在让我们深入了解JavaScript作用域和作用域链的工作原理">
 <meta property="og:type" content="article">
 <meta property="og:title" content="深入了解JavaScript，从作用域链开始（1）">
 <meta property="og:url" content="http://qianniuer.github.io/2016/06/16/深入了解JavaScript，从作用域链开始（1）/index.html">
 <meta property="og:site_name" content="qianniuer">
-<meta property="og:description" content="&amp;gt; 作用域是每种计算机语言最重要的基础之一，当然它也是JavaScript最重要的概念之一。要想真正的深入了解JavaScript，了解JavaScript的作用域链非常必要。现在让我们深入了解JavaScript作用域和作用域链的工作原理">
-<meta property="og:updated_time" content="2017-04-02T12:16:49.348Z">
+<meta property="og:description" content="作用域是每种计算机语言最重要的基础之一，当然它也是JavaScript最重要的概念之一。要想真正的深入了解JavaScript，了解JavaScript的作用域链非常必要。现在让我们深入了解JavaScript作用域和作用域链的工作原理">
+<meta property="og:updated_time" content="2017-04-03T12:58:04.291Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="深入了解JavaScript，从作用域链开始（1）">
-<meta name="twitter:description" content="&amp;gt; 作用域是每种计算机语言最重要的基础之一，当然它也是JavaScript最重要的概念之一。要想真正的深入了解JavaScript，了解JavaScript的作用域链非常必要。现在让我们深入了解JavaScript作用域和作用域链的工作原理">
+<meta name="twitter:description" content="作用域是每种计算机语言最重要的基础之一，当然它也是JavaScript最重要的概念之一。要想真正的深入了解JavaScript，了解JavaScript的作用域链非常必要。现在让我们深入了解JavaScript作用域和作用域链的工作原理">
   
     <link rel="alternative" href="/atom.xml" title="qianniuer" type="application/atom+xml">
   
@@ -181,7 +181,11 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="gt-作用域是每种计算机语言最重要的基础之一，当然它也是JavaScript最重要的概念之一。要想真正的深入了解JavaScript，了解JavaScript的作用域链非常必要。现在让我们深入了解JavaScript作用域和作用域链的工作原理"><a href="#gt-作用域是每种计算机语言最重要的基础之一，当然它也是JavaScript最重要的概念之一。要想真正的深入了解JavaScript，了解JavaScript的作用域链非常必要。现在让我们深入了解JavaScript作用域和作用域链的工作原理" class="headerlink" title="&gt; 作用域是每种计算机语言最重要的基础之一，当然它也是JavaScript最重要的概念之一。要想真正的深入了解JavaScript，了解JavaScript的作用域链非常必要。现在让我们深入了解JavaScript作用域和作用域链的工作原理"></a>&gt; 作用域是每种计算机语言最重要的基础之一，当然它也是JavaScript最重要的概念之一。要想真正的深入了解JavaScript，了解JavaScript的作用域链非常必要。现在让我们深入了解JavaScript作用域和作用域链的工作原理</h2><a id="more"></a>
+        <blockquote>
+<p>作用域是每种计算机语言最重要的基础之一，当然它也是JavaScript最重要的概念之一。要想真正的深入了解JavaScript，了解JavaScript的作用域链非常必要。现在让我们深入了解JavaScript作用域和作用域链的工作原理</p>
+</blockquote>
+<hr>
+<a id="more"></a>
 <h1 id="深入了解JavaScript，从作用域链开始（1）"><a href="#深入了解JavaScript，从作用域链开始（1）" class="headerlink" title="深入了解JavaScript，从作用域链开始（1）"></a>深入了解JavaScript，从作用域链开始（1）</h1><h3 id="JavaScript的作用域是什么"><a href="#JavaScript的作用域是什么" class="headerlink" title="JavaScript的作用域是什么"></a>JavaScript的作用域是什么</h3><p>作用域，在维基百科上解释是：在电脑程序设计中，作用域（scope，或译作有效范围）是名字（name）与实体（entity）的绑定（binding）保持有效的那部分计算机程序。<br>简单的说，作用域就是变量与函数的可访问范围，即作用域控制着变量与函数的可见性和生命周期。在JavaScript中，变量的作用域有全局作用域和局部作用域两种，局部作用域又称为函数作用域。</p>
 <h4 id="全局作用域"><a href="#全局作用域" class="headerlink" title="全局作用域"></a>全局作用域</h4><p>在代码中任何地方都能访问到的对象拥有全局作用域，一般来说以下几种情形拥有全局作用域：</p>
 <h5 id="（1）程序最外层定义的函数或者变量"><a href="#（1）程序最外层定义的函数或者变量" class="headerlink" title="（1）程序最外层定义的函数或者变量"></a>（1）程序最外层定义的函数或者变量</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a = <span class="string">"tsrot"</span>;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">hello</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	alert(a);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">sayHello</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	hello();</div><div class="line">&#125;</div><div class="line"></div><div class="line">alert(a);     <span class="comment">//能访问到tsrot</span></div><div class="line">hello();      <span class="comment">//能访问到tsrot</span></div><div class="line">sayHello();   <span class="comment">//能访问到hello函数，然后也能访问到tsrot</span></div></pre></td></tr></table></figure>

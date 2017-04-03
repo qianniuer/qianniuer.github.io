@@ -6,18 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://qianniuer.github.io">
-  <title>事件绑定、事件监听、事件委托Arguments对象作用深度研究 | qianniuer</title>
+  <title>事件绑定、事件监听、事件委托 | qianniuer</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="&amp;gt; 在JavaScript的学习中，我们经常会遇到JavaScript的事件机制，例如，事件绑定、事件监听、事件委托（事件代理）等。这些名词是什么意思呢，有什么作用呢？">
+  <meta name="description" content="在JavaScript的学习中，我们经常会遇到JavaScript的事件机制，例如，事件绑定、事件监听、事件委托（事件代理）等。这些名词是什么意思呢，有什么作用呢？">
 <meta property="og:type" content="article">
-<meta property="og:title" content="事件绑定、事件监听、事件委托Arguments对象作用深度研究">
+<meta property="og:title" content="事件绑定、事件监听、事件委托">
 <meta property="og:url" content="http://qianniuer.github.io/2016/04/16/事件绑定、事件监听、事件委托/index.html">
 <meta property="og:site_name" content="qianniuer">
-<meta property="og:description" content="&amp;gt; 在JavaScript的学习中，我们经常会遇到JavaScript的事件机制，例如，事件绑定、事件监听、事件委托（事件代理）等。这些名词是什么意思呢，有什么作用呢？">
-<meta property="og:updated_time" content="2017-04-02T12:03:42.356Z">
+<meta property="og:description" content="在JavaScript的学习中，我们经常会遇到JavaScript的事件机制，例如，事件绑定、事件监听、事件委托（事件代理）等。这些名词是什么意思呢，有什么作用呢？">
+<meta property="og:updated_time" content="2017-04-03T13:01:04.885Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="事件绑定、事件监听、事件委托Arguments对象作用深度研究">
-<meta name="twitter:description" content="&amp;gt; 在JavaScript的学习中，我们经常会遇到JavaScript的事件机制，例如，事件绑定、事件监听、事件委托（事件代理）等。这些名词是什么意思呢，有什么作用呢？">
+<meta name="twitter:title" content="事件绑定、事件监听、事件委托">
+<meta name="twitter:description" content="在JavaScript的学习中，我们经常会遇到JavaScript的事件机制，例如，事件绑定、事件监听、事件委托（事件代理）等。这些名词是什么意思呢，有什么作用呢？">
   
     <link rel="alternative" href="/atom.xml" title="qianniuer" type="application/atom+xml">
   
@@ -168,7 +168,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      事件绑定、事件监听、事件委托Arguments对象作用深度研究
+      事件绑定、事件监听、事件委托
     </h1>
   
 
@@ -181,7 +181,11 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="gt-在JavaScript的学习中，我们经常会遇到JavaScript的事件机制，例如，事件绑定、事件监听、事件委托（事件代理）等。这些名词是什么意思呢，有什么作用呢？"><a href="#gt-在JavaScript的学习中，我们经常会遇到JavaScript的事件机制，例如，事件绑定、事件监听、事件委托（事件代理）等。这些名词是什么意思呢，有什么作用呢？" class="headerlink" title="&gt; 在JavaScript的学习中，我们经常会遇到JavaScript的事件机制，例如，事件绑定、事件监听、事件委托（事件代理）等。这些名词是什么意思呢，有什么作用呢？"></a>&gt; 在JavaScript的学习中，我们经常会遇到JavaScript的事件机制，例如，事件绑定、事件监听、事件委托（事件代理）等。这些名词是什么意思呢，有什么作用呢？</h2><a id="more"></a>
+        <blockquote>
+<p>在JavaScript的学习中，我们经常会遇到JavaScript的事件机制，例如，事件绑定、事件监听、事件委托（事件代理）等。这些名词是什么意思呢，有什么作用呢？</p>
+</blockquote>
+<hr>
+<a id="more"></a>
 <h3 id="事件绑定"><a href="#事件绑定" class="headerlink" title="事件绑定"></a>事件绑定</h3><p>要想让 JavaScript 对用户的操作作出响应，首先要对 DOM 元素绑定事件处理函数。所谓事件处理函数，就是处理用户操作的函数，不同的操作对应不同的名称。</p>
 <p>在JavaScript中，有三种常用的绑定事件的方法：</p>
 <ul>
