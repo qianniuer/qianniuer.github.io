@@ -6,17 +6,27 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://qianniuer.github.io">
-  <title>Tag: 励志 | qianniuer</title>
+  <title>Vue学习进阶（四） | qianniuer</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="记录生活">
-<meta property="og:type" content="website">
-<meta property="og:title" content="qianniuer">
-<meta property="og:url" content="http://qianniuer.github.io/tags/励志/index.html">
+  <meta name="description" content="##Vue.js如何划分组件
+
+功能模块-select，pagenation…
+页面区域- header，footer，sidebar…">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vue学习进阶（四）">
+<meta property="og:url" content="http://qianniuer.github.io/2017/04/06/Vue学习进阶（三）/index.html">
 <meta property="og:site_name" content="qianniuer">
-<meta property="og:description" content="记录生活">
+<meta property="og:description" content="##Vue.js如何划分组件
+
+功能模块-select，pagenation…
+页面区域- header，footer，sidebar…">
+<meta property="og:updated_time" content="2017-04-08T16:48:33.791Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="qianniuer">
-<meta name="twitter:description" content="记录生活">
+<meta name="twitter:title" content="Vue学习进阶（四）">
+<meta name="twitter:description" content="##Vue.js如何划分组件
+
+功能模块-select，pagenation…
+页面区域- header，footer，sidebar…">
   
     <link rel="alternative" href="/atom.xml" title="qianniuer" type="application/atom+xml">
   
@@ -160,134 +170,210 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Vue学习进阶（三）" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/01/17/《你只是看起来很努力》/" class="archive-article-date">
-  	<time datetime="2016-01-17T02:55:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-01-17</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/01/17/《你只是看起来很努力》/">《你只是看起来很努力》</a>
+    <h1 class="article-title" itemprop="name">
+      Vue学习进阶（四）
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2017/04/06/Vue学习进阶（三）/" class="archive-article-date">
+  	<time datetime="2017-04-06T15:37:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>##Vue.js如何划分组件</p>
+<ul>
+<li>功能模块-select，pagenation…</li>
+<li>页面区域- header，footer，sidebar…</li>
+</ul>
+<a id="more"></a>
+<p>##Vue.js组件之间的调用-另外一个重要的选项-components</p>
+<ul>
+<li>App.vue文件<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">App.vue</div><div class="line">footer.vue</div><div class="line">header.vue</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>将组件导入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">import Header form &apos;./header&apos;</div><div class="line">import Footer form &apos;./footer&apos;</div><div class="line">new Vue(&#123;</div><div class="line">  data:&#123;</div><div class="line">    isShow:true</div><div class="line">  &#125;,</div><div class="line">  components:[</div><div class="line">  Header,Footer</div><div class="line">  ]</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<ul>
+<li>模板层面需写如下标签，将上面的组件引入，并进行渲染<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;header&gt;&lt;/header&gt;</div><div class="line">&lt;footer&gt;&lt;/footer&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>##Vue.js组件之间的通信 - props<br>想要组件之间进行通信，必须要先进行注册<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">//this is header.vue 文件</div><div class="line">new Vue(&#123;</div><div class="line">  data:&#123;</div><div class="line">    username:&apos;xxx&apos;</div><div class="line">  &#125;,</div><div class="line">  //props里面必须包含有msg 才能取到header里面的msg</div><div class="line">  //父组件向子组件传递信息</div><div class="line">  props:[&apos;msg&apos;],  </div><div class="line">  methods:&#123;</div><div class="line">    doThis:function()&#123;</div><div class="line">      console.log(this.msg)</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;!--this is app.vue 文件--&gt;</div><div class="line">&lt;header msg=&apos;somrthing intersting&apos;&gt;&lt;/header&gt;</div><div class="line">&lt;footer&gt;&lt;/footer&gt;</div></pre></td></tr></table></figure>
+<p>##Vue.js 自定义事件<br>vue实例实现了一个自定义事件接口，用于在组件树中通信，这个事件系统独立于原生DOM事件，用法也不同。</p>
+<p>每个Vue实例是一个事件触发器：</p>
+<ul>
+<li>使用 $on() 监听事件<blockquote>
+<p>父组件中监听子组件的方法，儿子要监听爸爸什么事情，v-on：child-tell-somthing=’listenToMyBoy’</p>
+</blockquote>
+</li>
+<li>使用 $emit() 在它上面触发事件</li>
+<li>使用 $dispatch() 派发事件，事件沿着父链冒泡</li>
+<li>使用 $broadcast() 广播事件，事件向下传导给所有的后代</li>
+</ul>
+<blockquote>
+<p>不同DOM事件，Vue事件在冒泡过程中第一次触发回调之后自动停止冒泡，除非明确返回 true</p>
+</blockquote>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/weixin.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/zhifu.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">励志</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Vue</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/读者集萃/" class="article-tag-list-link color5">读者集萃</a>
+        			<a href="/categories/学习进阶/" class="article-tag-list-link color5">学习进阶</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://qianniuer.github.io/2017/04/06/Vue学习进阶（三）/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-    
-    
-      
-        </div></section>
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2014" class="archive-year">2014</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2014/01/18/大学生十八条受益一生的定律/" class="archive-article-date">
-  	<time datetime="2014-01-18T03:33:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2014-01-18</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2014/01/18/大学生十八条受益一生的定律/">大学生十八条受益一生的定律</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">励志</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">语录</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/读者集萃/" class="article-tag-list-link color5">读者集萃</a>
-        		</li>
-      		
-		</ul>
-	</div>
+  
+<nav id="article-nav">
+  
+    <a href="/2017/04/07/Vue学习进阶（一）/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Vue学习进阶（一）
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/02/11/W3C是如何制定web标准的？/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">W3C是如何制定web标准的？</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+
+
+
+
   
-  
-    </div></section>
+    <div class="duoshuo"></div>
   
 
-    
+
 
 
           </div>
@@ -310,9 +396,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		root: "/",
