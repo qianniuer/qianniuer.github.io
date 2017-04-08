@@ -14,7 +14,7 @@
 <meta property="og:url" content="http://qianniuer.github.io/2017/04/06/Vue学习进阶（二）/index.html">
 <meta property="og:site_name" content="qianniuer">
 <meta property="og:description" content="安装###兼容Vue.js 不支持 IE8 及其以下版本，因为 Vue.js 使用了 IE8 不能模拟的 ECMAScript 5 特性。 Vue.js 支持所有兼容 ECMAScript 5 的浏览器。">
-<meta property="og:updated_time" content="2017-04-07T18:06:27.361Z">
+<meta property="og:updated_time" content="2017-04-08T17:16:34.705Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vue学习进阶（二）">
 <meta name="twitter:description" content="安装###兼容Vue.js 不支持 IE8 及其以下版本，因为 Vue.js 使用了 IE8 不能模拟的 ECMAScript 5 特性。 Vue.js 支持所有兼容 ECMAScript 5 的浏览器。">
@@ -216,6 +216,30 @@
 <blockquote>
 <p>原文：<a href="http://vuejs.org/guide/installation.html">http://vuejs.org/guide/installation.html</a></p>
 </blockquote>
+<hr>
+<p>##Vue.js组件的重要选项- data</p>
+<p>Vue所有合理的数据都放在data对象里<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;p&gt;&#123;&#123;a&#125;&#125;&lt;/p&gt;//实现双向数据绑定</div><div class="line">new Vue(&#123;</div><div class="line">  data:&#123;</div><div class="line">    a:1,</div><div class="line">    b:[]</div><div class="line">  &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>##Vue.js 组件的重要选项 - methods</p>
+<p>methods 代表方法，打印出data对象中的a<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">new Vue(&#123;</div><div class="line">  data:&#123;</div><div class="line">    a:1,</div><div class="line">    b:[]</div><div class="line">  &#125;,</div><div class="line">  methods:&#123;</div><div class="line">    doSomething:function()&#123;</div><div class="line">      console.log(this.a)</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p>##Vue.js 组件的重要选项 - watch</p>
+<p>watch 监听，对数据变化指定了一个方法，监听data对象中所有的a的变化，包括methods中a的变化，watch会自动执行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">new Vue(&#123;</div><div class="line">  data:&#123;</div><div class="line">    a:1,</div><div class="line">    b:[]</div><div class="line">  &#125;,</div><div class="line">  methods:&#123;</div><div class="line">    doSomething:function()&#123;</div><div class="line">     this.a++</div><div class="line">    &#125;</div><div class="line">  &#125;,</div><div class="line">  watch:&#123;</div><div class="line">    //&apos;a&apos;代表上述data中的a</div><div class="line">    &apos;a&apos;:function(val,oldVal)&#123;</div><div class="line">      console.log(val,oldVal)</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p>##模板指令-html和vue对象的粘合剂（自动更新）<br>常用数据渲染： v-text 、 v-html 、 双花括号</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;p&gt;&#123;&#123;a&#125;&#125;&lt;/p&gt;</div><div class="line">&lt;p v-text=&apos;a&apos;&gt;&lt;/p&gt; //这里的a对应到的是new Vue()数据原理上的a</div><div class="line">&lt;p v-html=&apos;a&apos;&gt;&lt;/p&gt;</div><div class="line"></div><div class="line">new Vue(&#123;</div><div class="line">  data:&#123;</div><div class="line">    a:1,</div><div class="line">    b:[]</div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>##模板指令 V-if V-show（列表）<br>控制模块隐藏：v-if、v-show<br>v-if 是直接渲染DOM元素<br>v-show 是通过css中的display：none来操作DOM元素的<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;p v-if=&apos;isShow&apos;&gt;&lt;/p&gt;</div><div class="line">&lt;p v-show=&apos;isShow&apos;&gt;&lt;/p&gt;</div><div class="line">new Vue(&#123;</div><div class="line">  data:&#123;</div><div class="line">    isShow:true</div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p>##模板指令 v-for（列表）<br>在循环体使用的变量，循环的是每一项，通过循环体内的 对象.属性名 的方式来取值<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&lt;ul&gt;</div><div class="line">   &lt;li v-for=&apos;item in intems&apos;&gt;</div><div class="line">      &lt;p v-text=&apos;item.label&apos;&gt;&lt;/p&gt;</div><div class="line">   &lt;/li&gt;</div><div class="line">&lt;/ul&gt;</div><div class="line">data:&#123;</div><div class="line">  items:[</div><div class="line">    &#123;label:&apos;apple&apos;&#125;,</div><div class="line">    &#123;label:&apos;banana&apos;&#125;</div><div class="line">  ]</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>##模板指令 v-on 事件绑定<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;button v-on:click=&apos;doThis&apos;&gt;&lt;/button&gt;</div><div class="line">可简写为：&lt;button @:click=&apos;doThis&apos;&gt;&lt;/button&gt;</div><div class="line">methods:&#123;</div><div class="line"> doThis:function(someThing)&#123;&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>##模板指令 v-bind 属性绑定<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;img v-bind:src=&apos;imageSrc&apos;&gt; //给src属性赋值为imageSrc</div><div class="line">v-bind 可简写为 :class</div><div class="line"></div><div class="line">&lt;div :class=&apos;&#123;red:isRed&#125;&apos;&gt;&lt;/div&gt; //后面的为对象 ,isRed 是对是否有clss的判断</div><div class="line">&lt;div :class=&apos;[classA,classB]&apos;&gt;&lt;/div&gt;//[classA,classB]是字符串</div><div class="line">混合写法：如下：</div><div class="line">&lt;div :class=&apos;[classA,&#123;classB:isB,classC:isC&#125;]&apos;&gt;&lt;/div&gt;</div></pre></td></tr></table></figure></p>
+<p>##小结：</p>
+<ul>
+<li><p>new 一个Vue对象的时候你可以设置他们的属性，其中最重要的包括三个，分别是data，methods、watch</p>
+</li>
+<li><p>其中data代表vue对象的数据，methods代表bue对象的方法，watch设置了对象监听的方法</p>
+</li>
+<li><p>Vue对象里的设置通过html指令进行关联</p>
+</li>
+<li><p>重要的指令包括<br>v-text 渲染数据<br>v-for循环渲染<br>v-if/show 控制显示<br>v-on 绑定事件 等</p>
+</li>
+</ul>
 </script></p>
       
 
@@ -341,9 +365,18 @@
   
 <nav id="article-nav">
   
+    <a href="/2017/04/06/Vue学习进阶（三）/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Vue学习进阶（四）
+        
+      </div>
+    </a>
   
-    <a href="/2017/04/05/Vue学习进阶（三）/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Vue学习进阶（三）</div>
+  
+    <a href="/2017/02/11/W3C是如何制定web标准的？/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">W3C是如何制定web标准的？</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -447,15 +480,11 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">原理</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">RequireJS</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Arguments</a>
+                <a href="javascript:void(0)" class="js-tag color3">原理</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -463,7 +492,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">ES6新特性</a>
+                <a href="javascript:void(0)" class="js-tag color5">Arguments</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -479,7 +508,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">W3C</a>
+                <a href="javascript:void(0)" class="js-tag color3">励志</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -495,11 +524,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">励志</a>
+                <a href="javascript:void(0)" class="js-tag color4">周鸿祎</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">周鸿祎</a>
+                <a href="javascript:void(0)" class="js-tag color4">W3C</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -511,15 +540,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">读者</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">思考</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">扑克</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">读者</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -560,6 +589,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">方法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">ES6新特性</a>
               </li>
             
             <div class="clearfix"></div>
